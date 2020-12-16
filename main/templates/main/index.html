@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html class="page" lang="ru">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+    <title>Home</title>
+    {% load static %}
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+    />
+    <link
+            rel="stylesheet"
+            href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+    <link rel="stylesheet" href="{% static 'css/styles.min.css' %}"/>
+</head>
+<body class="page-body">
+<noscript>Ваш браузер не поддерживает JavaScript.</noscript>
+<header class="page-header js-header-menu">
+    <div class="page-header__container page-container">
+        <a class="page-header__logo" href="{% url 'home' %}">
+            <img class="page-header__logo-img" src="{% static 'img/logo-ambsox.svg' %}" alt="Ambsox"/>
+        </a>
+        <!-- end .page-header__logo -->
+
+        <div class="page-header__inner">
+            <nav class="page-header__nav js-nav-menu">
+                <div class="page-header__nav-container">
+                    <ul
+                            class="page-header__nav-list page-header__menu-list menu-list"
+                    >
+                        <li class="menu-list__item">
+                            <a
+                                    class="menu-list__link menu-list__link--active"
+                                    href="./index.html"
+                            >Home</a
+                            >
+                        </li>
+                        <li class="menu-list__item">
+                            <a class="menu-list__link" href="./Our-sox.html">Our Sox</a>
+                        </li>
+                        <li class="menu-list__item">
+                            <a class="menu-list__link" href="./Shop.html">Shop</a>
+                        </li>
+                        <li class="menu-list__item">
+                            <a class="menu-list__link" href="#">Gallery</a>
+                        </li>
+                        <li class="menu-list__item">
+                            <a class="menu-list__link" href="./Sale.html">Sale&nbsp;%</a>
+                        </li>
+                    </ul>
+                    <!-- end .nav-list -->
+
+                    <ul
+                            class="page-header__nav-list page-header__lang-list lang-list"
+                    >
+                        <li class="lang-list__item">
+                            <a class="lang-list__link" href="#">RU</a>
+                        </li>
+                        <li class="lang-list__item">
+                            <a class="lang-list__link lang-list__link--active" href="#"
+                            >EN</a
+                            >
+                        </li>
+                        <li
+                                class="page-header__hide-mobmenu hide-mobmenu js-hide-mobmenu"
+                        >
+                            <button class="hide-mobmenu__btn" type="button">
+                                <img src="{% static 'img/icon-close.svg' %}" alt="X"/>
+                            </button>
+                        </li>
+                    </ul>
+                    <!-- end .lang-list -->
+
+                    <ul
+                            class="page-header__nav-list page-header__social-list page-header__social-list--dark social-list js-social-list"
+                    >
+                        <li class="page-header__social-item social-list__item">
+                            <a
+                                    class="page-header__social-link page-header__social-link--active social-list__link"
+                                    href="#"
+                            ><img src="{% static 'img/icon-inst.svg' %}" alt="INST"
+                            /></a>
+                        </li>
+                        <li class="page-header__social-item social-list__item">
+                            <a class="page-header__social-link social-list__link" href="#"
+                            ><img src="./img/icon-email.svg" alt="EMAIL"
+                            /></a>
+                        </li>
+                        <li class="page-header__social-item social-list__item">
+                            <a class="page-header__social-link social-list__link" href="#"
+                            ><img src="./img/icon-fb.svg" alt="Fb"
+                            /></a>
+                        </li>
+                    </ul>
+                    <!-- end .social-list -->
+                </div>
+            </nav>
+            <!-- end .page-header__nav -->
+
+            <a
+                    class="page-header__shoping-cart shoping-cart shoping-cart--dark js-shoping-cart"
+                    href="#"
+            >
+                <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink"
+                        width="36"
+                        height="36"
+                        viewBox="0 0 39 39"
+                >
+                    <path
+                            class="shoping-cart__icon"
+                            d="M13.5,35c1.4,0,2.5-1.1,2.5-2.5S14.9,30,13.5,30S11,31.1,11,32.5S12.1,35,13.5,35z"
+                    />
+                    <path
+                            class="shoping-cart__icon"
+                            d="M26.5,35c1.4,0,2.5-1.1,2.5-2.5S27.9,30,26.5,30S24,31.1,24,32.5S25.1,35,26.5,35z"
+                    />
+                    <path
+                            class="shoping-cart__icon"
+                            d="M30,16.5c-2,0-3.9-0.8-5.3-2.2c-1.4-1.4-2.2-3.3-2.2-5.3H9.2L8.8,7.6c0-0.2-0.1-0.3-0.3-0.4
+	C8.4,7.1,8.3,7,8.1,6.9L4,5.7c-0.1,0-0.3-0.1-0.4,0c-0.1,0-0.3,0.1-0.4,0.1C3,5.9,2.8,6.1,2.7,6.3C2.7,6.6,2.7,6.9,2.8,7.1
+	s0.3,0.4,0.6,0.5L7,8.7l4.6,14.5l-1.6,1.3l-0.1,0.1c-0.4,0.5-0.6,1.1-0.6,1.7c0,0.6,0.2,1.2,0.6,1.7c0.3,0.3,0.6,0.6,1,0.8
+	c0.4,0.2,0.8,0.3,1.2,0.2h16.7c0.3,0,0.5-0.1,0.7-0.3c0.2-0.2,0.3-0.4,0.3-0.7s-0.1-0.5-0.3-0.7C29.2,27.1,29,27,28.7,27H11.8
+	c-0.1,0-0.2,0-0.3-0.1c-0.1-0.1-0.2-0.1-0.2-0.2s-0.1-0.2-0.1-0.3c0-0.1,0-0.2,0.1-0.3l2.4-2h15.4c0.2,0,0.5-0.1,0.6-0.2
+	c0.2-0.1,0.3-0.3,0.4-0.6l1.7-7C31.2,16.4,30.6,16.5,30,16.5z"
+                    />
+                    <g>
+                        <path
+                                class="shoping-cart__notification"
+                                d="M32,14c3.9,0,7-3.1,7-7c0-3.9-3.1-7-7-7s-7,3.1-7,7C25,10.9,28.1,14,32,14z"
+                        />
+                        <text
+                                transform="matrix(1 0 0 1 28.5902 10.5066)"
+                                class="shoping-cart__notification-text"
+                        >
+                            2
+                        </text>
+                    </g>
+                </svg>
+            </a>
+            <!-- end .page-header__shoping-cart .shoping-cart -->
+
+            <div class="page-header__burger-icon js-burger-icon">
+                <svg
+                        class="page-header__burger-svg"
+                        width="20"
+                        height="12"
+                        viewBox="0 0 21 13"
+                        xmlns="http://www.w3.org/2000/svg"
+                >
+                    <path
+                            fill-rule="evenodd"
+                            clip-rule="evenodd"
+                            d="M0.25 1C0.25 0.585786 0.585786 0.25 1 0.25H19C19.4142 0.25 19.75 0.585786 19.75 1C19.75 1.41421 19.4142 1.75 19 1.75H1C0.585786 1.75 0.25 1.41421 0.25 1Z"
+                            fill="#393939"
+                    />
+                    <path
+                            fill-rule="evenodd"
+                            clip-rule="evenodd"
+                            d="M0.25 6C0.25 5.58579 0.585786 5.25 1 5.25H19C19.4142 5.25 19.75 5.58579 19.75 6C19.75 6.41421 19.4142 6.75 19 6.75H1C0.585786 6.75 0.25 6.41421 0.25 6Z"
+                            fill="#393939"
+                    />
+                    <path
+                            fill-rule="evenodd"
+                            clip-rule="evenodd"
+                            d="M0.25 11C0.25 10.5858 0.585786 10.25 1 10.25H19C19.4142 10.25 19.75 10.5858 19.75 11C19.75 11.4142 19.4142 11.75 19 11.75H1C0.585786 11.75 0.25 11.4142 0.25 11Z"
+                            fill="#393939"
+                    />
+                </svg>
+            </div>
+            <!-- end .page-header__burger-icon -->
+        </div>
+    </div>
+</header>
+<!-- end .page-header -->
+<!-- <div class="visible-hidden"></div> -->
+<main class="page-main js-page-main">
+    <section
+            class="page-home page-home--bg-home page-main__content"
+            style="background-image: url(./img/content-img1-1.png)"
+    >
+        <div class="page-home__container">
+            <div class="page-home__first page-container">
+                <h1 class="page-home__title page-text page-text-h1">
+                    Pilates, Barre, TRX, Yoga
+                    <span class="page-text--noweight">or</span> other classes&nbsp;...
+                </h1>
+                <h3 class="page-home__subtitle page-text page-text-h3">
+                    Perfect <span class="page-text--highlight">SWISS</span> socks for
+                    your favorite sport !
+                </h3>
+            </div>
+            <div class="page-home__last">
+                <img src="./img/content-img1.png" alt=""/>
+            </div>
+        </div>
+    </section>
+    <!-- end .page-home .page-main__content -->
+
+    <section class="page-our-shop page-main__content">
+        <div class="page-main__wrapper page-main__wrapper--reverse">
+            <div class="page-main__first page-container">
+                <h1 class="page-main__title page-text page-text-h1">Our Shop</h1>
+                <h3 class="page-main__subtitle page-text page-text-h3">
+                    Enjoy the excelent quality and unique design of our SOCKS!
+                </h3>
+                <p class="page-main__text">Antislippery SOCKS for all family</p>
+                <p class="page-main__text">
+                    Our SOCKS are perfect for pilates, barrie, yoga, TRX
+                    classes.Speedy range is made for running and cycling. try now!
+                </p>
+                <p class="page-main__text page-text--highlight">
+                    Free delivery in switzerland. Please contact us for delivery in
+                    Europe
+                </p>
+                <div class="page-main__btns-action">
+                    <button class="page-main__btn-action btn btn-primary">
+                        Get it!
+                    </button
+                    >
+                    <button class="page-main__btn-action btn btn-secondary">
+                        Inspiration
+                    </button>
+                </div>
+            </div>
+
+            <div class="page-main__last">
+                <img class="" src="./img/content-img2.jpg" alt="Our Shop image"/>
+            </div>
+        </div>
+    </section>
+    <!-- end .page-our-shop .page-main__content -->
+
+    <section class="page-about page-main__content">
+        <div class="page-main__wrapper">
+            <div class="page-main__first page-container">
+                <h1 class="page-main__title page-text page-text-h1">
+                    Who are we&nbsp;?
+                </h1>
+                <h3 class="page-main__subtitle page-text page-text-h3">
+                    We are women-team inspired by sport and family activities. We love
+                    to motivate people to make sport, make fun and enjoy theriselves!
+                </h3>
+                <p class="page-main__text">
+                    AMB BOX is based in lausanne - the heart of sport in switzerland.
+                </p>
+                <p class="page-main__text page-text--highlight">
+                    Join our community of active people!
+                </p>
+                <div class="page-main__btns-action">
+                    <button class="page-main__btn-action btn btn-primary">
+                        I'm with you!
+                    </button
+                    >
+                    <button class="page-main__btn-action btn btn-secondary">
+                        About us
+                    </button>
+                </div>
+            </div>
+
+            <div class="page-main__last">
+                <img class="" src="./img/content-img3.jpg" alt="Our Shop image"/>
+            </div>
+        </div>
+    </section>
+    <!-- end .page-about .page-main__content -->
+
+    <section class="page-sales page-main__content">
+        <div class="page-sales__container">
+            <div class="page-container">
+                <h2 class="page-sales__title">
+                    Buy now the high quality swiss designed sport socks:
+                    <span class="page-text--highlight"
+                    ><strong>
+                  <i>any style</i>, <i>any colour</i>,
+                  <i>any collection</i>
+                </strong>
+                -</span
+                    >
+                    <strong style="font-weight: 900">ONE PRICE!</strong>
+                </h2>
+            </div>
+            <div class="page-sales__swiper swiper-container js-swiper">
+                <div class="page-sales__items-wrapper swiper-wrapper">
+                    <a class="page-sales__item swiper-slide" href="#1">
+                        <img
+                                class="page-sales__item-img"
+                                src="./img/product-img1.jpg"
+                                alt="Classic grip"
+                        />
+                        <h2 class="page-sales__item-title page-text-h2">
+                            Classic grip
+                        </h2>
+                        <p class="page-sales__item-cost">CHF 15.00</p>
+                    </a>
+                    <!-- end .page-sales__item -->
+
+                    <a class="page-sales__item swiper-slide" href="#2">
+                        <img
+                                class="page-sales__item-img"
+                                src="./img/product-img2.jpg"
+                                alt="Ombre grip"
+                        />
+                        <h2 class="page-sales__item-title page-text-h2">Ombre grip</h2>
+                        <p class="page-sales__item-cost">CHF 15.00</p>
+                    </a>
+                    <!-- end .page-sales__item -->
+
+                    <a class="page-sales__item swiper-slide" href="#3">
+                        <img
+                                class="page-sales__item-img"
+                                src="./img/product-img1.jpg"
+                                alt="Classic grip"
+                        />
+                        <h2 class="page-sales__item-title page-text-h2">
+                            Classic grip
+                        </h2>
+                        <p class="page-sales__item-cost">CHF 15.00</p>
+                    </a>
+                    <!-- end .page-sales__item -->
+
+                    <a class="page-sales__item swiper-slide" href="#2">
+                        <img
+                                class="page-sales__item-img"
+                                src="./img/product-img2.jpg"
+                                alt="Ombre grip"
+                        />
+                        <h2 class="page-sales__item-title page-text-h2">Ombre grip</h2>
+                        <p class="page-sales__item-cost">CHF 15.00</p>
+                    </a>
+                    <!-- end .page-sales__item -->
+
+                    <a class="page-sales__item swiper-slide" href="#3">
+                        <img
+                                class="page-sales__item-img"
+                                src="./img/product-img1.jpg"
+                                alt="Classic grip"
+                        />
+                        <h2 class="page-sales__item-title page-text-h2">
+                            Classic grip
+                        </h2>
+                        <p class="page-sales__item-cost">CHF 15.00</p>
+                    </a>
+                    <!-- end .page-sales__item -->
+
+                    <a class="page-sales__item swiper-slide" href="#2">
+                        <img
+                                class="page-sales__item-img"
+                                src="./img/product-img2.jpg"
+                                alt="Ombre grip"
+                        />
+                        <h2 class="page-sales__item-title page-text-h2">Ombre grip</h2>
+                        <p class="page-sales__item-cost">CHF 15.00</p>
+                    </a>
+                    <!-- end .page-sales__item -->
+
+                    <a class="page-sales__item swiper-slide" href="#3">
+                        <img
+                                class="page-sales__item-img"
+                                src="./img/product-img1.jpg"
+                                alt="Classic grip"
+                        />
+                        <h2 class="page-sales__item-title page-text-h2">
+                            Classic grip
+                        </h2>
+                        <p class="page-sales__item-cost">CHF 15.00</p>
+                    </a>
+                    <!-- end .page-sales__item -->
+
+                    <a class="page-sales__item swiper-slide" href="#2">
+                        <img
+                                class="page-sales__item-img"
+                                src="./img/product-img2.jpg"
+                                alt="Ombre grip"
+                        />
+                        <h2 class="page-sales__item-title page-text-h2">Ombre grip</h2>
+                        <p class="page-sales__item-cost">CHF 15.00</p>
+                    </a>
+                    <!-- end .page-sales__item -->
+
+                    <a class="page-sales__item swiper-slide" href="#3">
+                        <img
+                                class="page-sales__item-img"
+                                src="./img/product-img1.jpg"
+                                alt="Classic grip"
+                        />
+                        <h2 class="page-sales__item-title page-text-h2">
+                            Classic grip
+                        </h2>
+                        <p class="page-sales__item-cost">CHF 15.00</p>
+                    </a>
+                    <!-- end .page-sales__item -->
+                </div>
+                <!-- end .page-sales__items-wrapper .swiper-wrapper -->
+            </div>
+            <!-- end .page-sales__swiper .swiper-container .js-swiper -->
+        </div>
+        <!-- end .page-sales__container -->
+    </section>
+    <!-- end .page-sales .page-main__content -->
+
+    <section class="page-community page-main__content">
+        <div class="page-container">
+            <h2 class="page-community__title">
+                For any questions / pour toutes les questions
+                <a class="page-community__mailto" href="mailto:info@ambsox.com"
+                >info@ambsox.com</a
+                >
+            </h2>
+            <ul class="page-community__social-list social-list">
+                <li class="page-community__social-item social-list__item">
+                    <a
+                            class="page-community__social-link page-community__social-link--active social-list__link"
+                            href="#"
+                    ><img src="./img/icon-inst.svg" alt="INST"
+                    /></a>
+                </li>
+                <li class="page-community__social-item social-list__item">
+                    <a class="page-community__social-link social-list__link" href="#"
+                    ><img src="./img/icon-email.svg" alt="EMAIL"
+                    /></a>
+                </li>
+                <li class="page-community__social-item social-list__item">
+                    <a class="page-community__social-link social-list__link" href="#"
+                    ><img src="./img/icon-fb.svg" alt="Fb"
+                    /></a>
+                </li>
+            </ul>
+            <!-- end .social-list -->
+        </div>
+    </section>
+    <!-- end .page-community .page-main__content -->
+
+    <section class="page-subscribe page-main__content">
+        <div class="page-container">
+            <div class="page-subscribe__container">
+                <h2 class="page-subscribe__title page-text-h2">Subscribe</h2>
+                <p class="page-subscribe__text">
+                    Sign up with your email address to receive news and updates
+                </p>
+
+                <form class="page-subscribe__form" action="">
+                    <label class="page-subscribe__input-wrapper">
+                        <input
+                                class="page-subscribe__input"
+                                type="text"
+                                placeholder="domain@email.com"
+                        />
+                    </label>
+                    <button
+                            class="page-subscribe__btn btn btn-subscribe"
+                            type="submit"
+                    >
+                        Subscribe
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+    <!-- end .page-subscribe .page-main__content -->
+</main>
+<!-- end .page-main -->
+
+<footer class="page-footer">
+    <ul class="page-footer__list">
+        <li class="page-footer__item">
+            <a class="page-footer__link" href="#">Blog</a>
+        </li>
+        <li class="page-footer__item">
+            <a class="page-footer__link" href="#">Contact</a>
+        </li>
+        <li class="page-footer__item">
+            <a class="page-footer__link" href="#">Term &amp; Conditions</a>
+        </li>
+        <li class="page-footer__item">
+            <a class="page-footer__link" href="#">Privacy Policy</a>
+        </li>
+        <li class="page-footer__item">
+            <a class="page-footer__link" href="#">Cookies Policy</a>
+        </li>
+    </ul>
+</footer>
+<!-- end .page-footer -->
+
+<!--[if lt IE 9]>
+<script src="js/html5shiv3.7.3.min.js"></script>
+<script src="js/html5shiv-printshiv3.7.3.min.js"></script>
+<![endif]-->
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script src="js/script.min.js"></script>
+
+</body>
+</html>
