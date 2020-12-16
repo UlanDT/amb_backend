@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <meta name="description" content=""/>
     <meta name="keywords" content=""/>
-    <title>Home</title>
+    <title>{% block title %}{% endblock %}</title>
     {% load static %}
     <link
             rel="stylesheet"
@@ -41,7 +41,7 @@
                             >
                         </li>
                         <li class="menu-list__item">
-                            <a class="menu-list__link" href="./Our-sox.html">Our Sox</a>
+                            <a class="menu-list__link" href="{% url 'our_sox' %}">Our Sox</a>
                         </li>
                         <li class="menu-list__item">
                             <a class="menu-list__link" href="./Shop.html">Shop</a>

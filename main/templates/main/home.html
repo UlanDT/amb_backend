@@ -1,10 +1,13 @@
 {% extends 'main/index.html' %}
 {% load static %}
+
+{% block title %} Home {% endblock title %}
+
 {% block content %}
     <main class="page-main js-page-main">
         <section
                 class="page-home page-home--bg-home page-main__content"
-                style="background-image: url(./img/content-img1-1.png)"
+                style="background-image: url('{% static "img/content-img1-1.png" %}')"
         >
             <div class="page-home__container">
                 <div class="page-home__first page-container">
