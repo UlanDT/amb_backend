@@ -1,0 +1,195 @@
+{% extends 'main/index.html' %}
+{% load static %}
+{% block content %}
+    <main class="page-main js-page-main">
+        <section
+                class="page-home page-home--bg-home page-main__content"
+                style="background-image: url(./img/content-img1-1.png)"
+        >
+            <div class="page-home__container">
+                <div class="page-home__first page-container">
+                    <h1 class="page-home__title page-text page-text-h1">
+                        Pilates, Barre, TRX, Yoga
+                        <span class="page-text--noweight">or</span> other classes&nbsp;...
+                    </h1>
+                    <h3 class="page-home__subtitle page-text page-text-h3">
+                        Perfect <span class="page-text--highlight">SWISS</span> socks for
+                        your favorite sport !
+                    </h3>
+                </div>
+                <div class="page-home__last">
+                    <img src="{% static 'img/content-img1.png' %}" alt=""/>
+                </div>
+            </div>
+        </section>
+        <!-- end .page-home .page-main__content -->
+
+        <section class="page-our-shop page-main__content">
+            <div class="page-main__wrapper page-main__wrapper--reverse">
+                <div class="page-main__first page-container">
+                    <h1 class="page-main__title page-text page-text-h1">Our Shop</h1>
+                    <h3 class="page-main__subtitle page-text page-text-h3">
+                        Enjoy the excelent quality and unique design of our SOCKS!
+                    </h3>
+                    <p class="page-main__text">Antislippery SOCKS for all family</p>
+                    <p class="page-main__text">
+                        Our SOCKS are perfect for pilates, barrie, yoga, TRX
+                        classes.Speedy range is made for running and cycling. try now!
+                    </p>
+                    <p class="page-main__text page-text--highlight">
+                        Free delivery in switzerland. Please contact us for delivery in
+                        Europe
+                    </p>
+                    <div class="page-main__btns-action">
+                        <button class="page-main__btn-action btn btn-primary">
+                            Get it!
+                        </button
+                        >
+                        <button class="page-main__btn-action btn btn-secondary">
+                            Inspiration
+                        </button>
+                    </div>
+                </div>
+
+                <div class="page-main__last">
+                    <img class="" src="{% static 'img/content-img2.jpg' %}" alt="Our Shop image"/>
+                </div>
+            </div>
+        </section>
+        <!-- end .page-our-shop .page-main__content -->
+
+        <section class="page-about page-main__content">
+            <div class="page-main__wrapper">
+                <div class="page-main__first page-container">
+                    <h1 class="page-main__title page-text page-text-h1">
+                        Who are we&nbsp;?
+                    </h1>
+                    <h3 class="page-main__subtitle page-text page-text-h3">
+                        We are women-team inspired by sport and family activities. We love
+                        to motivate people to make sport, make fun and enjoy theriselves!
+                    </h3>
+                    <p class="page-main__text">
+                        AMB BOX is based in lausanne - the heart of sport in switzerland.
+                    </p>
+                    <p class="page-main__text page-text--highlight">
+                        Join our community of active people!
+                    </p>
+                    <div class="page-main__btns-action">
+                        <button class="page-main__btn-action btn btn-primary">
+                            I'm with you!
+                        </button
+                        >
+                        <button class="page-main__btn-action btn btn-secondary">
+                            About us
+                        </button>
+                    </div>
+                </div>
+
+                <div class="page-main__last">
+                    <img class="" src="{% static 'img/content-img3.jpg' %}" alt="Our Shop image"/>
+                </div>
+            </div>
+        </section>
+        <!-- end .page-about .page-main__content -->
+
+        <section class="page-sales page-main__content">
+            <div class="page-sales__container">
+                <div class="page-container">
+                    <h2 class="page-sales__title">
+                        Buy now the high quality swiss designed sport socks:
+                        <span class="page-text--highlight"
+                        ><strong>
+                  <i>any style</i>, <i>any colour</i>,
+                  <i>any collection</i>
+                </strong>
+                -</span
+                        >
+                        <strong style="font-weight: 900">ONE PRICE!</strong>
+                    </h2>
+                </div>
+                <div class="page-sales__swiper swiper-container js-swiper">
+                    <div class="page-sales__items-wrapper swiper-wrapper">
+                        {% for item in sox %}
+                            <a class="page-sales__item swiper-slide" href="#1">
+                                <img
+                                        class="page-sales__item-img"
+                                        src="{{ item.image.url }}"
+                                        alt="Classic grip"
+                                />
+                                <h2 class="page-sales__item-title page-text-h2">
+                                    {{ item.title }}
+                                </h2>
+                                <p class="page-sales__item-cost">CHF {{ item.price }}</p>
+                            </a>
+                        {% endfor %}
+                        <!-- end .page-sales__item -->
+                    </div>
+                    <!-- end .page-sales__items-wrapper .swiper-wrapper -->
+                </div>
+                <!-- end .page-sales__swiper .swiper-container .js-swiper -->
+            </div>
+            <!-- end .page-sales__container -->
+        </section>
+        <!-- end .page-sales .page-main__content -->
+
+        <section class="page-community page-main__content">
+            <div class="page-container">
+                <h2 class="page-community__title">
+                    For any questions / pour toutes les questions
+                    <a class="page-community__mailto" href="mailto:info@ambsox.com"
+                    >info@ambsox.com</a
+                    >
+                </h2>
+                <ul class="page-community__social-list social-list">
+                    <li class="page-community__social-item social-list__item">
+                        <a
+                                class="page-community__social-link page-community__social-link--active social-list__link"
+                                href="#"
+                        ><img src="{% static 'img/icon-inst.svg' %}" alt="INST"
+                        /></a>
+                    </li>
+                    <li class="page-community__social-item social-list__item">
+                        <a class="page-community__social-link social-list__link" href="#"
+                        ><img src="{% static 'img/icon-email.svg' %}" alt="EMAIL"
+                        /></a>
+                    </li>
+                    <li class="page-community__social-item social-list__item">
+                        <a class="page-community__social-link social-list__link" href="#"
+                        ><img src="{% static 'img/icon-fb.svg' %}" alt="Fb"
+                        /></a>
+                    </li>
+                </ul>
+                <!-- end .social-list -->
+            </div>
+        </section>
+        <!-- end .page-community .page-main__content -->
+
+        <section class="page-subscribe page-main__content">
+            <div class="page-container">
+                <div class="page-subscribe__container">
+                    <h2 class="page-subscribe__title page-text-h2">Subscribe</h2>
+                    <p class="page-subscribe__text">
+                        Sign up with your email address to receive news and updates
+                    </p>
+
+                    <form class="page-subscribe__form" action="">
+                        <label class="page-subscribe__input-wrapper">
+                            <input
+                                    class="page-subscribe__input"
+                                    type="text"
+                                    placeholder="domain@email.com"
+                            />
+                        </label>
+                        <button
+                                class="page-subscribe__btn btn btn-subscribe"
+                                type="submit"
+                        >
+                            Subscribe
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+        <!-- end .page-subscribe .page-main__content -->
+    </main>
+{% endblock content %}

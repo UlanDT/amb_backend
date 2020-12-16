@@ -10,7 +10,7 @@ def index(request, category_slug=None):
     if category_slug:
         category = get_object_or_404(Category, slug=category_slug)
         sox = sox.filter(category=category)
-    return render(request, 'main/index.html', {'category': category, 'categories': categories, 'sox': sox})
+    return render(request, 'main/home.html', {'category': category, 'categories': categories, 'sox': sox})
 
 
 def sox_detail(request, id):
