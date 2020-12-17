@@ -1,0 +1,84 @@
+{% extends 'main/index.html' %}
+{% load static %}
+{% block title %} Shop {% endblock title %}
+{% block content %}
+    <main class="page-main page-main--shop js-page-main">
+        <section class="page-shop page-main__content page-main--top">
+            <div class="page-shop__container page-container">
+                <h3
+                        class="page-shop__title page-text page-text-h3 page-text--noweight"
+                >
+                    Sport antislippery socks - for your
+                    <strong><i class="page-text--highlight">pilates</i></strong
+                    >, <i>barre</i>,
+                    <strong><i class="page-text--highlight">trx</i></strong> and
+                    <strong><i class="page-text--highlight">yoga classes</i></strong>
+                </h3>
+            </div>
+        </section>
+        <!-- end .page-shop .page-main__content -->
+
+        <section class="page-shop page-main__content">
+            <div class="page-shop__inner page-container">
+                <div class="page-shop__filters">
+                    <div class="page-shop__products-title">
+                        <p>Swiss design</p>
+                    </div>
+                    <div class="page-shop__filters-list swiper--testmob swiper-container js-shop-filters-swiper">
+                        <div class="page-shop__filters-wrapper swiper-wrapper">
+                            <div class="page-shop__filter-item swiper-slide">
+                                <p class="page-shop__filter-text page-shop__filter-text--active js-shop-filter"
+                                   data-filterkey="0">All</p>
+                            </div>
+                            {% for category in categories %}
+                                <div class="page-shop__filter-item swiper-slide">
+                                    <p class="page-shop__filter-text js-shop-filter"
+                                       data-filterkey="ballet">{{ category.name }}</p>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="page-shop__filters swiper--testdesk">
+                        <div class="page-shop__filters-wrapper">
+                            <div class="page-shop__filter-item">
+                                <p class="page-shop__filter-text page-shop__filter-text--active js-shop-filter"
+                                   data-filterkey="0">All</p>
+                            </div>
+                            {% for category in categories %}
+                                <div class="page-shop__filter-item swiper-slide">
+                                    <p class="page-shop__filter-text js-shop-filter"
+                                       data-filterkey="{{ category.slug }}">{{ category.name }}</p>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="page-shop__products">
+                    {% for item in sox %}
+                        <div class="page-shop__product js-shop-product" data-filterid="{{ item.category.slug }}">
+                            <div class="page-shop__product-box" href="{{ item.get_absolute_url }}">
+                                <img class="page-shop__product-img" src="{{ item.image.url }}" alt=""/>
+                                <a class="page-shop__hover" href="{{ item.get_absolute_url }}">
+                                    <p class="page-shop__hover-btn btn">Quick View</p>
+                                </a>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+        <!-- end .page-shop .page-main__content -->
+    </main>
+    <!-- end .page-main -->
+
+    <div class="footer-message">
+        <div class="page-container">
+            <p class="">
+                Delivery in <i class="page-text--highlight">SWITZERLAND</i> is free,
+                fast and secure.
+            </p>
+        </div>
+    </div>
+
+{% endblock content %}
