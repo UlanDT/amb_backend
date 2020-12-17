@@ -1,4 +1,3 @@
-
 .page-home {
   position: relative;
   color: $colorTextH1;
@@ -78,14 +77,13 @@
 /* end .page-home */
 
 .page-inspiration {
-  @include mdx($tablet-width) {
-  }
+  @include mdx($tablet-width) {}
 
   @include mdn($tablet-width + 1) {
     height: 100vh;
   }
 
-  &__wrapper {}
+  // &__wrapper {}
 
   &__slide {
     height: 247px;
@@ -102,8 +100,6 @@
       width: 387px;
     }
   }
-
-  // &__img {}
 }
 
-/* end page-home */
+/* end .page-inspiration */
