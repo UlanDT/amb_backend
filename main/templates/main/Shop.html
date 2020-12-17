@@ -57,9 +57,9 @@
                 <div class="page-shop__products">
                     {% for item in sox %}
                         <div class="page-shop__product js-shop-product" data-filterid="{{ item.category.slug }}">
-                            <div class="page-shop__product-box" href="#">
+                            <div class="page-shop__product-box" href="{{ item.get_absolute_url }}">
                                 <img class="page-shop__product-img" src="{{ item.image.url }}" alt=""/>
-                                <a class="page-shop__hover" href="#">
+                                <a class="page-shop__hover" href="{{ item.get_absolute_url }}">
                                     <p class="page-shop__hover-btn btn">Quick View</p>
                                 </a>
                             </div>

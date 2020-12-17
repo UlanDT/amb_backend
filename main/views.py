@@ -25,7 +25,7 @@ def sox_list(request, category_slug=None):
 
 def sox_detail(request, id):
     sox = get_object_or_404(Sox, id=id)
-    return render(request, 'sox_detail.html', {'sox': sox})
+    return render(request, 'main/sox_detail.html', {'sox': sox})
 
 
 def our_sox(request):

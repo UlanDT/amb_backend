@@ -8,5 +8,5 @@ urlpatterns = [
     path('our_sox', our_sox, name='our_sox'),
     path('shop', sox_list, name='sox_list'),
     path('<slug:category_slug>', index, name='sox_list_by_category'),
-    path('<int:id>', sox_detail, name='sox_detail'),
+    path('shop/<int:id>', sox_detail, name='sox_detail'),
 ]

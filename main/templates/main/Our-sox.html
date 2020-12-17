@@ -220,7 +220,7 @@
                 <div class="page-sales__swiper swiper-container js-swiper">
                     <div class="page-sales__items-wrapper swiper-wrapper">
                         {% for item in sox %}
-                            <a class="page-sales__item swiper-slide" href="#1">
+                            <a class="page-sales__item swiper-slide" href="{{ item.get_absolute_url }}">
                                 <img
                                         class="page-sales__item-img"
                                         src="{{ item.image.url }}"
