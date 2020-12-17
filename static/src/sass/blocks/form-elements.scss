@@ -1,0 +1,40 @@
+.btn {
+  padding: $padBtnVer $padBtnHor;
+  border-radius: 44px;
+  border: 1px solid $bgButton;
+  color: $colorTextButton;
+  font-size: $fsButton;
+  line-height: 24px;
+  cursor: pointer;
+
+  &-subscribe {
+    @include fontFamily("Roboto");
+    font-weight: 600;
+    background-color: $bgButton;
+    color: $colorTextButton;
+    
+    @include mdx($tablet-width) {
+      font-size: $fsMSubscribeButton;
+      padding: 12px 16px;
+    }
+    
+    @include mdn($tablet-width + 1) {
+      font-size: $fsDSubscribeButton;
+      padding: 16px 20px;
+    }
+  }
+
+  &-primary {
+    background-color: $bgButton;
+  }
+
+  &-secondary {
+    background-color: #fff;
+  }
+}
+
+.input {
+  &-text {
+    border-radius: 10px;
+  }
+}

@@ -1,0 +1,187 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.page {
+  width: 100%;
+  height: 100%;
+}
+
+.page-body {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+
+  margin: 0;
+  font-size: 100%;
+  color: $colorTextSimple;
+  @include fontFamily("Roboto");
+
+  @include mdx($tablet-width) {
+    font-size: $fsMText;
+  }
+
+  @include mdn($tablet-width + 1) {
+    font-size: $fsDText;
+  }
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+ul {
+  padding-left: 0;
+}
+
+ol {
+  margin: 0;
+  padding-left: 16px;
+}
+
+blockquote {
+  margin: 0;
+}
+
+.shoping-cart {
+  &__icon {
+    fill: $fillShopCart;
+  }
+
+  &__notification {
+    fill: $fillShopCartNotification;
+  }
+
+  &__notification-text {
+    fill: $colorTextWhite;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 500;
+  }
+}
+
+.shoping-cart--dark {
+  .shoping-cart__icon {
+    @include mdn($tablet-width + 1) {
+      fill: $fillShopCartDark;
+    }
+  }
+}
+
+.social-list {
+  list-style: none;
+
+  display: flex;
+  flex-direction: row;
+
+  &__link {
+    border-radius: $brSocialcon;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.page-text {
+  &-simple {
+    font-size: $fsMText;
+  }
+
+  &--highlight-white {
+    color: #ffffff;
+  }
+
+  @include mdx($tablet-width) {
+    &-h1 {
+      font-size: $fsMH1;
+    }
+
+    &-h2 {
+      font-size: $fsMH2;
+    }
+
+    &-h3 {
+      font-size: $fsMH3;
+    }
+
+    &--noweight {
+      font-weight: normal;
+    }
+
+    &--highlight {
+      color: $colorTextHightlight;
+    }
+  }
+
+  @include mdn($tablet-width + 1) {
+    &-h1 {
+      font-size: $fsDH1;
+    }
+
+    &-h3 {
+      font-size: $fsDH3;
+    }
+
+    &--noweight {
+      font-weight: normal;
+    }
+
+    &--highlight {
+      color: $colorTextHightlight;
+    }
+  }
+}
+
+.page-container {
+  @include mdx($tablet-width) {
+    padding: 0 $offsetMobileCantainer;
+  }
+
+  @include mdn($tablet-width + 1) {
+    padding: 0 22px;
+  }
+}
+
+.hide-mobmenu {
+
+  @include mdx($tablet-width) {
+    display: block;
+  }
+
+  @include mdn($tablet-width + 1) {
+    display: none;
+  }
+
+  &__btn {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+  }
+}
+
+.hyphen-list {
+  list-style-type: none;
+
+  li {
+    position: relative;
+    padding-left: 10px;
+
+    &::before {
+      position: absolute;
+      content: "-";
+      left: 0px;
+    }
+  }
+}
