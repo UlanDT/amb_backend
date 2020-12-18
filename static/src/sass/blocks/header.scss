@@ -5,7 +5,7 @@
   width: 100%;
   z-index: 8;
   transition: background .2s linear;
-  
+
   &--bg-white {
     background-color: #fff;
   }
@@ -57,7 +57,7 @@
       width: 100vw;
       height: 100vh;
       background-color: $bgMobileMenu;
-      transition: all .15s linear;
+      transition: all 0.15s linear;
       transform: translateX(100%);
 
       &--show {
@@ -76,6 +76,7 @@
       height: inherit;
       flex-flow: column nowrap;
       justify-content: space-between;
+      overflow-x: auto;
     }
 
     // @include mdn($tablet-width + 1) {   }
@@ -103,9 +104,7 @@
     .menu-list__item {
 
       @include mdx($tablet-width) {
-        &:not(:last-child) {
-          margin-bottom: 24px;
-        }
+        margin-bottom: 24px;
       }
 
       @include mdn($tablet-width + 1) {
@@ -146,14 +145,25 @@
   /* end .page-header__menu-list */
 
   &__lang-list {
+    width: 35px;
 
-    .lang-list__item {
-      &:not(:nth-child(2)) {
-        margin-right: 16px;
-      }
+    .lang-list__items {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+
+      position: absolute;
+      top: 120%;
+      left: 0;
+
+      width: 50px;
+      background-color: #fff;
     }
 
-    .lang-list__link {
+    .lang-list__link-item {
+      padding: 4px 0;
+
       @include mdx($tablet-width) {
         color: $colorTextMobileMenuLang;
       }
@@ -162,6 +172,7 @@
         color: $colorTextMobileMenu;
       }
 
+      &:active,
       &--active {
         color: $colorTextHightlight;
       }
@@ -177,6 +188,7 @@
   /* end .page-header__lang-list */
 
   &__social-list {
+
     .social-list__item {
       &:not(:last-child) {
         margin-right: 10px;
@@ -187,6 +199,10 @@
       width: 32px;
       height: 32px;
       background-color: rgba($bgSocialIcon, 0.2);
+
+      &:hover {
+        background-color: rgba($bgSocialIcon, 0.8);
+      }
 
       img {
         width: 15px;
@@ -281,16 +297,43 @@
 /* end .nav-list */
 
 .lang-list {
+  position: relative;
+
   &__link {
+    color: $colorTextHeaderMenu;
+    text-decoration: none;
+    font-size: $fsHeaderMenu;
+    line-height: $lh;
+  }
+
+  &__link-item {
     color: $colorTextHeaderMenu;
     font-size: $fsHeaderMenu;
     line-height: $lh;
     transition: all 0.1s linear;
     text-decoration: none;
 
-    // @include mdx($tablet-width) {    }
+    // @include mdx($tablet-width) {}
 
-    // @include mdn($tablet-width + 1) {    }
+    // @include mdn($tablet-width + 1) {}
+  }
+}
+
+.lang-selectbox {
+  width: 35px;
+  background-image: url(../img/drop-arrows.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: right -10px;
+
+  @include mdx($tablet-width) {
+    margin-right: 30px;
+  }
+
+  cursor: pointer;
+
+  &--up {
+    background-position: right 10px;
   }
 }
 

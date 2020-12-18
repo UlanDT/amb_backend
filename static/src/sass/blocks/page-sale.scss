@@ -24,7 +24,6 @@
     padding: 24px;
     border-radius: 10px;
     border: 1px solid #c7c7c7;
-    margin: 0 auto;
   }
 
   &__title {
@@ -64,16 +63,27 @@
   &__list {
     @include fontFamily("rubik");
     padding-left: 16px;
-    list-style: url(../../img/list-marker-circle.svg);
+    margin-top: 0;
+    margin-bottom: 12px;
+    list-style: url(../img/list-marker-circle.svg);
   }
 
   .page-text {
     line-height: $lh;
+    margin-bottom: 12px;
   }
 
   &__list-item {
     font-size: $fsSaleListText;
     margin-bottom: 12px;
+  }
+
+  &__btns {
+    margin-bottom: 0;
+  }
+
+  &__btn {
+    width: 100%;
   }
 
 }
