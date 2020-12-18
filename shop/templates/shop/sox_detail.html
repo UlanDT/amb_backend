@@ -3,10 +3,21 @@
 {% block title %} {{ sox.title }} {% endblock title %}
 
 {% block content %}
-{#    {{ sox.title }}#}
-{#    {{ sox.image.url }}#}
-{#    {{ sox.price }}#}
-{#    {{ sox.description }}#}
-{#    {{ sox.fabrics }}#}
-{#    {{ sox.size }}#}
+    <section class="page-shop page-main__content page-main--top">
+        <div class="page-shop__container page-container">
+            {{ sox.title }}
+            <img src="{{ sox.image.url }}" alt ='sox'>
+            {{ sox.price }}
+            <form action="{% url 'cart:cart_add' sox.id %}" method="post">
+                {{ cart_product_form }}
+                {% csrf_token %}
+                <input type="submit" value="Add to cart">
+            </form>
+
+            {{ sox.description|linebreaks }}
+            {{ sox.fabrics }}
+            {{ sox.size }}
+        </div>
+    </section>
+
 {% endblock content %}

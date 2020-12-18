@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 
 from .models import Sox, Discount, Category
+from cart.forms import CartAddProductForm
 
 
 def index(request, category_slug=None):
@@ -25,9 +26,11 @@ def sox_list(request, category_slug=None):
 
 def sox_detail(request, id):
     sox = get_object_or_404(Sox, id=id)
-    return render(request, 'shop/sox_detail.html', {'sox': sox})
+    cart_product_form = CartAddProductForm()
+    return render(request, 'shop/sox_detail.html', {'sox': sox, 'cart_product_form': cart_product_form})
 
 
 def our_sox(request):
     sox = Sox.objects.all()
     return render(request, 'shop/Our-sox.html', {'sox': sox})
+
