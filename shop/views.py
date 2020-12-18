@@ -10,7 +10,7 @@ def index(request, category_slug=None):
     if category_slug:
         category = get_object_or_404(Category, slug=category_slug)
         sox = sox.filter(category=category)
-    return render(request, 'main/home.html', {'category': category, 'categories': categories, 'sox': sox})
+    return render(request, 'shop/home.html', {'category': category, 'categories': categories, 'sox': sox})
 
 
 def sox_list(request, category_slug=None):
@@ -20,14 +20,14 @@ def sox_list(request, category_slug=None):
     if category_slug:
         category = get_object_or_404(Category, slug=category_slug)
         sox = sox.filter(category=category)
-    return render(request, 'main/Shop.html', {'category': category, 'categories': categories, 'sox': sox})
+    return render(request, 'shop/Shop.html', {'category': category, 'categories': categories, 'sox': sox})
 
 
 def sox_detail(request, id):
     sox = get_object_or_404(Sox, id=id)
-    return render(request, 'main/sox_detail.html', {'sox': sox})
+    return render(request, 'shop/sox_detail.html', {'sox': sox})
 
 
 def our_sox(request):
     sox = Sox.objects.all()
-    return render(request, 'main/Our-sox.html', {'sox': sox})
+    return render(request, 'shop/Our-sox.html', {'sox': sox})

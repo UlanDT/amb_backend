@@ -55,7 +55,7 @@ exports.styles = styles;
 const server = (done) => {
     sync.init({
         server: {
-            baseDir: 'main/templates'
+            baseDir: 'shop/templates'
         },
         cors: true,
         notify: true,
@@ -76,7 +76,7 @@ const watcher = () => {
     //     delay: 500
     // }, gulp.series("copyHtml"));
     gulp.watch("build/*.html").on("change", sync.reload);
-    gulp.watch("main/templates/**/*.html").on("change", sync.reload);
+    gulp.watch("shop/templates/**/*.html").on("change", sync.reload);
 
     gulp.watch("static/src/js/*.js", {
         delay: 500
@@ -104,7 +104,7 @@ const copyHtml = () => {
         "static/*.html"
     ])
         .pipe(gulp.dest("build"))
-        .pipe(gulp.dest("main/templates/main"));
+        .pipe(gulp.dest("shop/templates/shop"));
 };
 exports.copyHtml = copyHtml;
 

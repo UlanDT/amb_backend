@@ -1,6 +1,6 @@
 from decimal import Decimal
 from django.conf import settings
-from sox_backend.main.models import Sox
+from shop.models import Sox
 
 
 class Cart(object):

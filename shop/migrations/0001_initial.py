@@ -47,8 +47,8 @@ class Migration(migrations.Migration):
                 ('image', models.ImageField(upload_to='static/sox')),
                 ('fabrics', models.TextField()),
                 ('size', models.TextField()),
-                ('category', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='products', to='main.category')),
-                ('discount', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='discount', to='main.discount')),
+                ('category', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='products', to='shop.category')),
+                ('discount', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='discount', to='shop.discount')),
             ],
             options={
                 'verbose_name': 'Sox',

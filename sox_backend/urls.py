@@ -16,11 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-# from sox.main.views import sox_detail, index
+# from sox.shop.views import sox_detail, index
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # path('api/', include('main.urls')),
-    path('', include('main.urls')),
+    # path('api/', include('shop.urls')),
+    path('cart', include('cart.urls')),
+    path('', include('shop.urls')),
 
 ]

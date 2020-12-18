@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  const PageMain = $(".js-page-main");
+  const PageMain = $(".js-page-shop");
   const BurgerMenuBtn = $(".js-burger-icon");
   const NavHeaderMenu = $(".js-nav-menu");
   const HideMobmenuBtn = $(".js-hide-mobmenu");
