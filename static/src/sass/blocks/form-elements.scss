@@ -6,6 +6,7 @@
   font-size: $fsButton;
   line-height: 24px;
   cursor: pointer;
+  transition: background .1s linear;
 
   &-subscribe {
     @include fontFamily("Roboto");

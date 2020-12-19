@@ -208,6 +208,10 @@ blockquote {
   color: #fff;
   background-color: rgba(255, 255, 255, 0.2); }
 
+.swiper-button-prev,
+.swiper-button-next {
+  color: #ffffff; }
+
 .btn {
   padding: 10px 20px;
   border-radius: 44px;
@@ -215,7 +219,8 @@ blockquote {
   color: #393939;
   font-size: 18px;
   line-height: 24px;
-  cursor: pointer; }
+  cursor: pointer;
+  transition: background .1s linear; }
   .btn-subscribe {
     font-family: "Roboto", Arial, sans-serif;
     font-weight: 600;
@@ -808,9 +813,12 @@ blockquote {
     .page-shop__title {
       padding: 16px 0; } }
 
-@media (max-width: 991px) {
-  .page-shop__filters {
-    margin-bottom: 20px; } }
+.page-shop__filters {
+  list-style: none;
+  font-size: 16px; }
+  @media (max-width: 991px) {
+    .page-shop__filters {
+      margin-bottom: 20px; } }
 
 @media (min-width: 992px) {
   .page-shop__filters-list {
@@ -840,24 +848,11 @@ blockquote {
   @media (min-width: 992px) {
     .page-shop__products {
       flex-flow: row wrap;
-      flex-basis: 85%; } }
+      flex-basis: 80%; } }
   @media (max-width: 479px) {
     .page-shop__products {
       height: 60vh;
       justify-content: center; } }
-
-.page-shop__product-box {
-  position: relative; }
-  .page-shop__product-box:hover .page-shop__hover {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 2; }
 
 @media (max-width: 991px) {
   .page-shop__product {
@@ -879,19 +874,90 @@ blockquote {
       margin-right: 0;
       margin-bottom: 0; } }
 
-.page-shop__hover {
-  display: none;
-  background-color: rgba(0, 0, 0, 0.2);
-  text-decoration: none; }
+.page-shop__product-card {
+  position: relative; }
 
-.page-shop__hover-btn {
-  background-color: #FF994F;
-  color: #fff;
+.page-shop__card {
+  display: block;
+  position: relative;
+  text-decoration: none;
   border: none; }
+  .page-shop__card::after {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transition: background 0.1s linear;
+    z-index: 0; }
+  .page-shop__card--hover::after {
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: 2; }
+  .page-shop__card--hover + .page-shop__qview-btn {
+    display: block; }
+
+.page-shop__qview-box {
+  padding: 0 50px; }
+
+.page-shop__qview {
+  width: 80%;
+  height: 100%;
+  background-color: #fff; }
+
+.page-shop__qview-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; }
   @media (max-width: 991px) {
-    .page-shop__hover-btn {
+    .page-shop__qview-container {
+      flex-wrap: wrap; } }
+  @media (min-width: 992px) {
+    .page-shop__qview-container {
+      flex-wrap: nowrap; } }
+
+.page-shop__qview-details, .page-shop__qview-gallery {
+  flex-basis: 50%;
+  padding: 16px; }
+
+.page-shop__qview-btn {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  color: #fff;
+  white-space: nowrap;
+  background-color: #FF994F;
+  transform: translate(-50%, -50%);
+  border: none;
+  z-index: 2; }
+  .page-shop__qview-btn:hover {
+    background-color: #ff7b1c; }
+  .page-shop__qview-btn:active {
+    background-color: #ffb782; }
+  @media (max-width: 991px) {
+    .page-shop__qview-btn {
       font-size: 14px;
       padding: 2px 16px; } }
+
+.page-shop__card-title {
+  font-size: 36px;
+  color: #393939;
+  line-height: 38px; }
+
+.page-shop__card-cost {
+  font-size: 28px;
+  color: #393939;
+  line-height: 120%; }
+
+.page-shop__card-full-link {
+  color: #393939; }
+
+.page-shop__card-title, .page-shop__card-cost, .page-shop__card-excerpt, .page-shop__card-add {
+  margin-bottom: 12px; }
+
+.page-shop__card-img {
+  width: 600px; }
 
 @media (min-width: 992px) {
   .page-shop__product-img {
@@ -911,13 +977,6 @@ blockquote {
   .page-shop__products-title p {
     display: inline-block;
     border-bottom: 1px solid; }
-
-.page-shop__filters {
-  list-style: none;
-  font-size: 16px; }
-  @media (min-width: 992px) {
-    .page-shop__filters {
-      flex-grow: 1; } }
 
 @media (max-width: 991px) {
   .page-shop__filter-item {

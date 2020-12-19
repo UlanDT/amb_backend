@@ -14,6 +14,8 @@ $(document).ready(function () {
   const SelectboxLangList = $(".js-select-langlist");
   const SelectboxDropLangList = $(".js-drop-langlist");
   const SelectboxValueLangList = $(".js-value-langlist");
+  const PopupQviewBtn = $(".js-popup-qview-btn");
+  const PopupQviewCard = $(".js-popup-qview-card");
 
   let swiperActiveIndexGalleryPage = 0;
 
@@ -89,6 +91,25 @@ $(document).ready(function () {
     }
   });
 
+  const ShopQviewCardSwiper = checkDOMForSwiper(".js-shop-qview-card-swiper", {
+    slidesPerView: 1,
+    spaceBetween: 50,
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+  });
+
+  const SwiperZoomCard = checkDOMForSwiper(".js-zoom-card-swiper", {
+    nested: true,
+    zoom: {
+      maxRatio: 3
+    },
+    observer: true,
+    observeParents: true,
+    spaceBetween: 16,
+  });
+
   if ($(window).scrollTop() >= HeaderMenu.height()) {
     HeaderMenu.addClass("page-header--bg-white");
 
@@ -141,6 +162,14 @@ $(document).ready(function () {
       }
     });
   };
+
+  ShopProducts.each(function (_, card) {
+    $(card).hover(function (evt) {
+      $(card).find(".page-shop__card").addClass("page-shop__card--hover");
+    }, function (evt) {
+      $(card).find(".page-shop__card").removeClass("page-shop__card--hover");
+    });
+  });
 
   ShopFilters.on("click", function (evt) {
     let elm = $(evt.currentTarget);
@@ -195,6 +224,23 @@ $(document).ready(function () {
     });
   }
 
+  if (PopupQviewBtn.length) {
+    PopupQviewBtn.magnificPopup({
+      type: 'inline',
+      preloader: false,
+      callbacks: {
+        open: function (e) {
+          PopupQviewCard.show();
+          ShopQviewCardSwiper.update();
+        },
+        close: function (e) {
+          PopupQviewCard.hide();
+        }
+      }
+    });
+  }
+
+
   SelectboxLangList.on("click", function (e) {
     if (e.target.tagName === "A") {
       SelectboxValueLangList.text(e.target.textContent);
@@ -209,4 +255,6 @@ $(document).ready(function () {
 
     SelectboxDropLangList.toggle();
   });
+
+
 });
