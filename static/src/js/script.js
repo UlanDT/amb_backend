@@ -15,7 +15,7 @@ $(document).ready(function () {
   const SelectboxDropLangList = $(".js-drop-langlist");
   const SelectboxValueLangList = $(".js-value-langlist");
   const PopupQviewBtn = $(".js-popup-qview-btn");
-  const PopupQviewCard = $(".js-popup-qview-card");
+  const PopupQviewCard = $(".js-popup-zoom-qview-card");
 
   let swiperActiveIndexGalleryPage = 0;
 
@@ -94,6 +94,7 @@ $(document).ready(function () {
   const ShopQviewCardSwiper = checkDOMForSwiper(".js-shop-qview-card-swiper", {
     slidesPerView: 1,
     spaceBetween: 50,
+    watchOverflow: true,
     navigation: {
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev',
@@ -105,6 +106,7 @@ $(document).ready(function () {
     zoom: {
       maxRatio: 3
     },
+    // autoHeight: true,
     observer: true,
     observeParents: true,
     spaceBetween: 16,
@@ -239,7 +241,6 @@ $(document).ready(function () {
       }
     });
   }
-
 
   SelectboxLangList.on("click", function (e) {
     if (e.target.tagName === "A") {
