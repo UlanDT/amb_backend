@@ -14,6 +14,9 @@ $(document).ready(function () {
   const SelectboxLangList = $(".js-select-langlist");
   const SelectboxDropLangList = $(".js-drop-langlist");
   const SelectboxValueLangList = $(".js-value-langlist");
+  const SlickZoomCard = $(".js-zoom-card-slick");
+  const SlickZoomCardThumbs = $(".js-zoom-card-thumbs-slick");
+  const SlickShopQviewCard = $('.js-shop-qview-card-slick');
   const PopupQviewBtn = $(".js-popup-qview-btn");
   const PopupQviewCard = $(".js-popup-zoom-qview-card");
 
@@ -91,25 +94,59 @@ $(document).ready(function () {
     }
   });
 
-  const ShopQviewCardSwiper = checkDOMForSwiper(".js-shop-qview-card-swiper", {
-    slidesPerView: 1,
-    spaceBetween: 50,
-    watchOverflow: true,
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
+  // const ShopQviewCardSwiper = checkDOMForSwiper(".js-shop-qview-card-swiper", {
+  //   slidesPerView: 1,
+  //   spaceBetween: 50,
+  //   watchOverflow: true,
+  //   navigation: {
+  //     nextEl: '.swiper-button-next',
+  //     prevEl: '.swiper-button-prev',
+  //   },
+  // });
+
+  const SwiperZoomCardThumbs = checkDOMForSwiper(".js-zoom-card-thumbs-swiper", {
+    // nested: true,
+    spaceBetween: 16,
+    slidesPerView: 4,
+    // watchSlidesVisibility: true,
+    // watchSlidesProgress: true,
+    // observer: true,
+    // observeParents: true,
   });
 
-  const SwiperZoomCard = checkDOMForSwiper(".js-zoom-card-swiper", {
-    nested: true,
-    zoom: {
-      maxRatio: 3
-    },
-    // autoHeight: true,
-    observer: true,
-    observeParents: true,
-    spaceBetween: 16,
+  // const SwiperZoomCard = checkDOMForSwiper(".js-zoom-card-swiper", {
+  //   // nested: true,
+  //   spaceBetween: 16,
+  //   zoom: true,
+  //   observer: true,
+  //   observeParents: true,
+  //   thumbs: {
+  //     swiper: SwiperZoomCardThumbs,
+  //   },
+  // });
+
+  /*
+   $('.slider-for').slick({
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      arrows: false,
+      fade: true,
+      asNavFor: '.slider-nav'
+    });
+    $('.slider-nav').slick({
+      slidesToShow: 3,
+      slidesToScroll: 1,
+      asNavFor: '.slider-for',
+      dots: true,
+      centerMode: true,
+      focusOnSelect: true
+    });
+  * */
+
+  const SwiperZoomCard = new Swiper('.js-zoom-card-swiper', {
+    thumbs: {
+      swiper: SwiperZoomCardThumbs
+    }
   });
 
   if ($(window).scrollTop() >= HeaderMenu.height()) {
@@ -233,10 +270,51 @@ $(document).ready(function () {
       callbacks: {
         open: function (e) {
           PopupQviewCard.show();
-          ShopQviewCardSwiper.update();
+
+          SlickShopQviewCard.slick({
+            dots: false,
+            infinite: false,
+            prevArrow: "<div class=\"swiper-button-prev page-shop__qview-arrow-prev\"></div>",
+            nextArrow: "<div class=\"swiper-button-next page-shop__qview-arrow-next\"></div>",
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            draggable: false
+          });
+
+          SlickZoomCard.slick({
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            adaptiveHeight: true,
+            arrows: false,
+            centerMode: true,
+            centerPadding: "50px",
+            infinite: false,
+            asNavFor: '.js-zoom-card-thumbs-slick'
+          });
+
+          SlickZoomCardThumbs.slick({
+            slidesToShow: 4,
+            infinite: false,
+            slidesToScroll: 1,
+            asNavFor: '.js-zoom-card-slick',
+            arrows: false,
+            dots: false,
+            focusOnSelect: true
+          });
+
+          $('.js-card-zoom-img')
+              .wrap('<span style="display:inline-block"></span>')
+              .css('display', 'block')
+              .parent()
+              .zoom();
         },
         close: function (e) {
           PopupQviewCard.hide();
+          SlickShopQviewCard.slick("unslick");
+          SlickZoomCard.slick("unslick");
+          SlickZoomCardThumbs.slick("unslick");
+
+          $('.js-card-zoom-img').trigger('zoom.destroy');
         }
       }
     });
