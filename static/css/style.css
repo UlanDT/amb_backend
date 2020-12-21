@@ -1102,6 +1102,164 @@ blockquote {
   .page-sale__btn {
     width: 100%; }
 
+.page-cart a {
+  text-decoration: none; }
+
+@media (min-width: 992px) {
+  .page-cart__container {
+    margin-bottom: 40px; } }
+
+.page-cart__table {
+  margin-bottom: 40px; }
+
+.page-cart__table-wrapper {
+  overflow-x: scroll;
+  margin-bottom: 20px; }
+
+.page-cart__table-wrapper-container {
+  min-width: 500px;
+  overflow: hidden; }
+
+.page-cart__thead {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  text-transform: uppercase; }
+
+.page-cart__tbody-container {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center; }
+
+.page-cart__tbody-quantity {
+  display: flex; }
+  @media (max-width: 991px) {
+    .page-cart__tbody-quantity {
+      flex-flow: column wrap;
+      justify-content: space-between;
+      align-items: center; } }
+  @media (min-width: 992px) {
+    .page-cart__tbody-quantity {
+      flex-flow: row nowrap;
+      justify-content: space-between;
+      align-items: center; } }
+  @media (max-width: 991px) {
+    .page-cart__tbody-quantity form {
+      text-align: center; } }
+  .page-cart__tbody-quantity input[type=number] {
+    height: 40px;
+    min-width: 40px;
+    padding: 2px;
+    border: 1px solid #FFC499; }
+    @media (max-width: 991px) {
+      .page-cart__tbody-quantity input[type=number] {
+        width: 80%;
+        margin-bottom: 12px; } }
+    @media (min-width: 992px) {
+      .page-cart__tbody-quantity input[type=number] {
+        width: 30%; } }
+
+.page-cart__table-cell {
+  flex-basis: calc(100% / 5);
+  margin-right: 6px; }
+  .page-cart__table-cell:last-child {
+    margin-right: 0; }
+  .page-cart__table-cell--remove {
+    flex-basis: 2%;
+    width: 20px;
+    height: 20px;
+    padding: 10px 5px; }
+    .page-cart__table-cell--remove svg {
+      opacity: 0.5; }
+      .page-cart__table-cell--remove svg:hover {
+        opacity: 1; }
+  .page-cart__table-cell--image img {
+    min-width: 80px;
+    width: 100%;
+    max-width: 180px; }
+
+.page-cart__tbody-cell {
+  padding: 10px 0; }
+
+.page-cart__thead-text {
+  font-size: 14px;
+  color: #c7c7c7; }
+
+.page-cart__total {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  color: #060606; }
+
+.page-cart__total-num, .page-cart__total-text {
+  font-size: 16px; }
+
+.page-cart__total-text {
+  margin-right: 16px; }
+
+.page-cart__action-btn {
+  margin-bottom: 40px;
+  display: inline-block; }
+
+.page-cart__checkout {
+  text-align: right; }
+
+.page-cart__title {
+  margin-bottom: 32px; }
+  @media (max-width: 991px) {
+    .page-cart__title {
+      padding: 16px 0; } }
+
+/* end .page-cart */
+/*
+<table class="cart">
+        <thead>
+        <tr>
+          <th>Image</th>
+          <th>Product</th>
+          <th>Quantity</th>
+          <th>Remove</th>
+          <th>Unit price</th>
+          <th>Price</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for item in cart %}
+          {% with product=item.product %}
+            <tr>
+              <td>
+                <a href="{{ product.get_absolute_url }}">
+                  <img src="{{ product.image.url }}">
+                </a>
+              </td>
+              <td>{{ product.name }}</td>
+              <td>
+                <form action="{% url 'cart:cart_add' product.id %}" method="post">
+                  {{ item.update_quantity_form.quantity }}
+                  {{ item.update_quantity_form.update }}
+                  <input type="submit" value="Update">
+                  {% csrf_token %}
+                </form>
+              </td>
+              <td><a href="{% url 'cart:cart_remove' product.id %}">Remove</a></td>
+              <td class="num">${{ item.price }}</td>
+              <td class="num">${{ item.total_price }}</td>
+            </tr>
+          {% endwith %}
+        {% endfor %}
+        <tr class="total">
+          <td>Total</td>
+          <td colspan="4"></td>
+          <td class="num">${{ cart.get_total_price }}</td>
+        </tr>
+        </tbody>
+      </table>
+*/
 @media (max-width: 991px) {
   .page-footer {
     margin-bottom: 32px; } }
