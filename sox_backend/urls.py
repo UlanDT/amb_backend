@@ -23,6 +23,6 @@ urlpatterns = [
     # path('api/', include('shop.urls')),
     path('cart/', include('cart.urls')),
     path('orders/', include('orders.urls')),
+    path('payment/', include('payment.urls')),
     path('', include('shop.urls')),
-
 ]

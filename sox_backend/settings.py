@@ -11,7 +11,10 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 import os
 from pathlib import Path
+
+from braintree import Configuration, Environment
 from dotenv import load_dotenv
+
 load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -41,6 +44,7 @@ INSTALLED_APPS = [
     'orders',
     'cart',
     'shop',
+    'payment',
 ]
 
 MIDDLEWARE = [
@@ -137,3 +141,15 @@ BRAINTREE_MERCHANT_ID = os.getenv("BRAINTREE_MERCHANT_ID")
 BRAINTREE_PUBLIC_KEY = os.getenv("BRAINTREE_PUBLIC_KEY")
 BRAINTREE_PRIVATE_KEY = os.getenv("BRAINTREE_PRIVATE_KEY")
 
+'''
+Когда
+вы захотите опубликовать ваше приложение, нужно будет зарегистрировать Braintree-
+аккаунт для боевого режима и заменить эту строку на Environment.Production. Также нуж-
+но будет указать новые ID, секретный и публичный ключи, соответствующие аккаунту.
+'''
+Configuration.configure(
+    Environment.Sandbox,  # Environment.Production for registering and publishing an app
+    BRAINTREE_MERCHANT_ID,
+    BRAINTREE_PUBLIC_KEY,
+    BRAINTREE_PRIVATE_KEY
+)
