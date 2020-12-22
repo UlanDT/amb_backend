@@ -34,3 +34,6 @@ def our_sox(request):
     sox = Sox.objects.all()
     return render(request, 'shop/Our-sox.html', {'sox': sox})
 
+
+def sale(request):
+    return render(request, 'shop/Sale.html')

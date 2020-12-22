@@ -16,6 +16,7 @@
   &__container {
     @include mdx($tablet-width) {
       // padding-top: 90px;
+      margin-bottom: 40px;
     }
 
     @include mdn($tablet-width + 1) {
@@ -49,8 +50,16 @@
   }
 
   &__filters {
+    list-style: none;
+    font-size: 16px;
+
     @include mdx($tablet-width) {
       margin-bottom: 20px;
+    }
+
+    @include mdn($tablet-width + 1) {
+      // padding: 12px 14px;
+      //flex-grow: 1;
     }
   }
 
@@ -84,6 +93,7 @@
     @include mdn($tablet-width + 1) {
       flex-flow: row wrap;
       flex-basis: 85%;
+      justify-content: space-between;
     }
 
     @include mdx($mobile-width) {
@@ -96,22 +106,6 @@
     } */
   }
 
-  &__product-box {
-    position: relative;
-
-    &:hover .page-shop__hover {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      z-index: 2;
-    }
-  }
-
   &__product {
     @include mdx($tablet-width) {
       width: 164px;
@@ -120,7 +114,7 @@
     }
 
     @include mdn($tablet-width + 1) {
-      margin-right: 20px;
+      //margin-right: 20px;
       margin-bottom: 20px;
     }
 
@@ -136,22 +130,161 @@
     }
   }
 
-  &__hover {
-    display: none;
-
-    background-color: rgba(#000, 0.2);
-    text-decoration: none;
+  &__product-card {
+    position: relative;
   }
 
-  &__hover-btn {
-    background-color: $bgButtonView;
-    color: #fff;
+  &__card {
+    display: block;
+    position: relative;
+
+    text-decoration: none;
     border: none;
+
+    &::after {
+      position: absolute;
+      content: "";
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+
+      transition: background 0.1s linear;
+      z-index: 0;
+    }
+
+    &--hover {
+      &::after {
+        background-color: rgba(#000, 0.2);
+        z-index: 2;
+      }
+
+      & + .page-shop__qview-btn {
+        display: block;
+      }
+    }
+  }
+
+  &__qview-box {
+    padding: 0 50px;
+  }
+
+  &__qview {
+    background-color: #fff;
+  }
+
+  &__qview-container {
+    display: flex;
+    justify-content: space-between;
+
+    @include mdx($tablet-width) {
+      flex-flow: row wrap;
+    }
+
+    @include mdn($tablet-width + 1) {
+      flex-flow: row nowrap;
+    }
+
+    @include mdx($mobile-width) {
+      flex-flow: column wrap;
+    }
+  }
+
+  &__gallery,
+  &__qview-gallery {
+    flex-basis: 60%;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  &__details,
+  &__qview-details {
+    flex-basis: 40%;
+  }
+
+  &__qview-details,
+  &__qview-gallery {
+    padding: 16px;
+  }
+
+  &__details,
+  &__gallery {
+    padding: 16px;
+
+    @include mdx($mobile-width-h) {
+      flex-basis: 100%;
+    }
+  }
+
+  &__qview-btn {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    color: #fff;
+    white-space: nowrap;
+    background-color: $bgButtonView;
+    transform: translate(-50%, -50%);
+
+    border: none;
+    z-index: 2;
+
+    &:hover {
+      background-color: darken($bgButtonView, 10%);
+    }
+
+    &:active {
+      background-color: lighten($bgButtonView, 10%);
+    }
 
     @include mdx($tablet-width) {
       font-size: 14px;
       padding: 2px 16px;
     }
+  }
+
+  &__card-title {
+    font-size: $fsSaleTitleH1;
+    color: $colorTextSalesTitle;
+    line-height: 38px;
+  }
+
+  &__card-cost {
+    font-size: $fsSalesTitle;
+    color: $colorTextSalesTitle;
+    line-height: 120%;
+  }
+
+  &__card-full-link {
+    color: $colorTextSalesTitle;
+  }
+
+  //&__card-add {}
+
+  //&__card-excerpt {}
+
+  &__card-title,
+  &__card-cost,
+  &__card-excerpt,
+  &__card-btn-container {
+    margin-bottom: 12px;
+  }
+
+  &__card-img {
+    width: 600px;
+  }
+
+  &__qview-card-thumbs {
+    margin-top: 16px;
+  }
+
+  &__qview-card-thumb {
+    margin-right: 16px;
+  }
+
+  &__qview-card-img {
+    width: 200px;
   }
 
   &__product-img {
@@ -161,10 +294,26 @@
     }
   }
 
+  &__qview-arrow-prev {
+    left: -40px;
+  }
+
+  &__qview-arrow-next {
+    right: -40px;
+  }
+
+  &__qview-arrow-next,
+  &__qview-arrow-prev {
+    opacity: 1;
+
+    &.slick-disabled {
+      opacity: .5;
+    }
+  }
+
   &__products-title {
     color: $colorTextShopTitle;
     line-height: 150%;
-    border-bottom: 1px solid;
 
     @include mdx($tablet-width) {
       display: none;
@@ -178,22 +327,12 @@
 
     p {
       display: inline-block;
-    }
-  }
-
-  &__filters {
-    list-style: none;
-    font-size: 16px;
-
-    @include mdx($tablet-width) {}
-
-    @include mdn($tablet-width + 1) {
-      // padding: 12px 14px;
-      flex-grow: 1;
+      border-bottom: 1px solid;
     }
   }
 
   &__filter-item {
+
     @include mdx($tablet-width) {
       padding: 12px 8px;
       width: 140px;
@@ -201,6 +340,7 @@
   }
 
   &__filter-text {
+    display: inline-block;
     cursor: pointer;
 
     &--active,
@@ -216,6 +356,14 @@
     @include mdn($tablet-width + 1) {
       padding: 12px 14px;
     }
+  }
+
+  &__popup-zoom {
+    padding: 16px 0;
+  }
+
+  .mfp-close {
+    top: 16px;
   }
 }
 

@@ -1,0 +1,245 @@
+.page-shop {
+
+  @include mdx($tablet-width) {
+    // padding-top: 90px;
+  }
+
+  @include mdn($tablet-width + 1) {
+    // max-width: $desktop-width;
+
+    .page-container {
+      padding: 0;
+    }
+
+  }
+
+  &__container {
+    @include mdx($tablet-width) {
+      // padding-top: 90px;
+    }
+
+    @include mdn($tablet-width + 1) {
+      margin-bottom: 80px;
+    }
+  }
+
+  &__inner {
+    display: flex;
+
+    @include mdx($tablet-width) {
+      flex-flow: column nowrap;
+    }
+
+    @include mdn($tablet-width + 1) {
+      width: 95%;
+      margin: 0 auto;
+      flex-flow: row nowrap;
+      justify-content: space-between;
+    }
+  }
+
+  &__title {
+    color: $colorTextShopTitle;
+    line-height: 150%;
+    text-align: center;
+
+    @include mdx($tablet-width) {
+      padding: 16px 0;
+    }
+  }
+
+  &__filters {
+    @include mdx($tablet-width) {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__filters-list {
+
+    @include mdn($tablet-width + 1) {
+      // margin-right: 6vw;
+      min-width: 140px;
+      max-width: 200px;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+  }
+
+  &__products {
+    display: flex;
+
+    @include mdx($tablet-width) {
+      flex-flow: row wrap;
+      justify-content: center;
+
+      height: 65vh;
+      overflow-x: scroll;
+
+      @include hideScrollbar;
+    }
+
+    @include mdn($tablet-width + 1) {
+      flex-flow: row wrap;
+      flex-basis: 85%;
+    }
+
+    @include mdx($mobile-width) {
+      height: 60vh;
+      justify-content: center;
+    }
+
+    /* @include md-min-max($mobile-width, $tablet-width + 1) {
+      justify-content: flex-start;
+    } */
+  }
+
+  &__product-box {
+    position: relative;
+
+    &:hover .page-shop__hover {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 2;
+    }
+  }
+
+  &__product {
+    @include mdx($tablet-width) {
+      width: 164px;
+      margin-right: 10px;
+      margin-bottom: 10px;
+    }
+
+    @include mdn($tablet-width + 1) {
+      margin-right: 20px;
+      margin-bottom: 20px;
+    }
+
+    @include mdx($mobile-width) {
+      width: 48%;
+      min-width: 120px;
+      max-width: 164px;
+
+      &:nth-child(even) {
+        margin-right: 0;
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__hover {
+    display: none;
+
+    background-color: rgba(#000, 0.2);
+    text-decoration: none;
+  }
+
+  &__hover-btn {
+    background-color: $bgButtonView;
+    color: #fff;
+    border: none;
+
+    @include mdx($tablet-width) {
+      font-size: 14px;
+      padding: 2px 16px;
+    }
+  }
+
+  &__product-img {
+
+    @include mdn($tablet-width + 1) {
+      width: 235px;
+    }
+  }
+
+  &__products-title {
+    color: $colorTextShopTitle;
+    line-height: 150%;
+    border-bottom: 1px solid;
+
+    @include mdx($tablet-width) {
+      display: none;
+      font-size: 19px;
+    }
+
+    @include mdn($tablet-width + 1) {
+      font-size: 23px;
+      margin-bottom: 40px;
+    }
+
+    p {
+      display: inline-block;
+    }
+  }
+
+  &__filters {
+    list-style: none;
+    font-size: 16px;
+
+    @include mdx($tablet-width) {}
+
+    @include mdn($tablet-width + 1) {
+      // padding: 12px 14px;
+      flex-grow: 1;
+    }
+  }
+
+  &__filter-item {
+    @include mdx($tablet-width) {
+      padding: 12px 8px;
+      width: 140px;
+    }
+  }
+
+  &__filter-text {
+    cursor: pointer;
+
+    &--active,
+    &:hover {
+      color: $colorTextHightlight;
+    }
+
+    @include mdx($tablet-width) {
+      display: block;
+      text-align: center;
+    }
+
+    @include mdn($tablet-width + 1) {
+      padding: 12px 14px;
+    }
+  }
+}
+
+/* end .page-shop */
+
+.swiper--test {
+  &mob {
+    @include mdx($tablet-width) {
+      display: block;
+    }
+
+    @include mdn($tablet-width + 1) {
+      display: none;
+    }
+  }
+
+  &desk {
+    @include mdx($tablet-width) {
+      display: none;
+    }
+
+    @include mdn($tablet-width + 1) {
+      display: block;
+    }
+
+  }
+}

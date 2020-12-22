@@ -2,83 +2,155 @@
 {% load static %}
 {% block title %} Shop {% endblock title %}
 {% block content %}
-    <main class="page-main page-main--shop js-page-main">
-        <section class="page-shop page-main__content page-main--top">
-            <div class="page-shop__container page-container">
-                <h3
-                        class="page-shop__title page-text page-text-h3 page-text--noweight"
-                >
-                    Sport antislippery socks - for your
-                    <strong><i class="page-text--highlight">pilates</i></strong
-                    >, <i>barre</i>,
-                    <strong><i class="page-text--highlight">trx</i></strong> and
-                    <strong><i class="page-text--highlight">yoga classes</i></strong>
-                </h3>
-            </div>
-        </section>
-        <!-- end .page-shop .page-main__content -->
+  <main class="page-main page-main--shop js-page-main">
+    <section class="page-shop page-main__content page-main--top">
+      <div class="page-shop__container page-container">
+        <h3
+            class="page-shop__title page-text page-text-h3 page-text--noweight"
+        >
+          Sport antislippery socks - for your
+          <strong><i class="page-text--highlight">pilates</i></strong
+          >, <i>barre</i>,
+          <strong><i class="page-text--highlight">trx</i></strong> and
+          <strong><i class="page-text--highlight">yoga classes</i></strong>
+        </h3>
+      </div>
+    </section>
+    <!-- end .page-shop .page-main__content -->
 
-        <section class="page-shop page-main__content">
-            <div class="page-shop__inner page-container">
-                <div class="page-shop__filters">
-                    <div class="page-shop__products-title">
-                        <p>Swiss design</p>
-                    </div>
-                    <div class="page-shop__filters-list swiper--testmob swiper-container js-shop-filters-swiper">
-                        <div class="page-shop__filters-wrapper swiper-wrapper">
-                            <div class="page-shop__filter-item swiper-slide">
-                                <p class="page-shop__filter-text page-shop__filter-text--active js-shop-filter"
-                                   data-filterkey="0">All</p>
-                            </div>
-                            {% for category in categories %}
-                                <div class="page-shop__filter-item swiper-slide">
-                                    <p class="page-shop__filter-text js-shop-filter"
-                                       data-filterkey="ballet">{{ category.name }}</p>
-                                </div>
-                            {% endfor %}
-                        </div>
-                    </div>
-                    <div class="page-shop__filters swiper--testdesk">
-                        <div class="page-shop__filters-wrapper">
-                            <div class="page-shop__filter-item">
-                                <p class="page-shop__filter-text page-shop__filter-text--active js-shop-filter"
-                                   data-filterkey="0">All</p>
-                            </div>
-                            {% for category in categories %}
-                                <div class="page-shop__filter-item swiper-slide">
-                                    <p class="page-shop__filter-text js-shop-filter"
-                                       data-filterkey="{{ category.slug }}">{{ category.name }}</p>
-                                </div>
-                            {% endfor %}
-                        </div>
-                    </div>
+    <section class="page-shop page-main__content">
+      <div class="page-shop__inner page-container">
+        <div class="page-shop__filters">
+          <div class="page-shop__products-title">
+            <p>Swiss design</p>
+          </div>
+          <div class="page-shop__filters-list swiper--testmob swiper-container js-shop-filters-swiper">
+            <div class="page-shop__filters-wrapper swiper-wrapper">
+              <div class="page-shop__filter-item swiper-slide">
+                <p class="page-shop__filter-text page-shop__filter-text--active js-shop-filter"
+                   data-filterkey="0">All</p>
+              </div>
+              {% for category in categories %}
+                <div class="page-shop__filter-item swiper-slide">
+                  <p class="page-shop__filter-text js-shop-filter"
+                     data-filterkey="ballet">{{ category.name }}</p>
                 </div>
-
-                <div class="page-shop__products">
-                    {% for item in sox %}
-                        <div class="page-shop__product js-shop-product" data-filterid="{{ item.category.slug }}">
-                            <div class="page-shop__product-box" href="{{ item.get_absolute_url }}">
-                                <img class="page-shop__product-img" src="{{ item.image.url }}" alt=""/>
-                                <a class="page-shop__hover" href="{{ item.get_absolute_url }}">
-                                    <p class="page-shop__hover-btn btn">Quick View</p>
-                                </a>
-                            </div>
-                        </div>
-                    {% endfor %}
-                </div>
+              {% endfor %}
             </div>
-        </section>
-        <!-- end .page-shop .page-main__content -->
-    </main>
-    <!-- end .page-main -->
-
-    <div class="footer-message">
-        <div class="page-container">
-            <p class="">
-                Delivery in <i class="page-text--highlight">SWITZERLAND</i> is free,
-                fast and secure.
-            </p>
+          </div>
+          <div class="page-shop__filters swiper--testdesk">
+            <div class="page-shop__filters-wrapper">
+              <div class="page-shop__filter-item">
+                <p class="page-shop__filter-text page-shop__filter-text--active js-shop-filter"
+                   data-filterkey="0">All</p>
+              </div>
+              {% for category in categories %}
+                <div class="page-shop__filter-item swiper-slide">
+                  <p class="page-shop__filter-text js-shop-filter"
+                     data-filterkey="{{ category.slug }}">{{ category.name }}</p>
+                </div>
+              {% endfor %}
+            </div>
+          </div>
         </div>
+
+        <div class="page-shop__products">
+          {% for item in sox %}
+            <div class="page-shop__product js-shop-product" data-filterid="{{ item.category.slug }}">
+              <div class="page-shop__product-card">
+                <a class="page-shop__card" href="{{ item.get_absolute_url }}">
+                  <img class="page-shop__product-img" src="{{ item.image.url }}" alt=""/>
+                </a>
+                <button class="page-shop__qview-btn btn js-popup-qview-btn"
+                        data-mfp-src=".js-popup-zoom-qview-card">Quick View
+                </button>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+
+        <div class="page-shop page-shop__popup-zoom js-popup-zoom-qview-card" style="display: none">
+          <div class="page-shop__qview-box">
+            <div class="page-shop__qview-container js-shop-qview-card-slick">
+              {% for item in sox %}
+                <div class="page-shop__qview">
+                  <div class="page-shop__qview-container">
+                    <div class="page-shop__qview-gallery">
+                      <div class="js-zoom-card-slick">
+                        <div class="">
+                          <img class="page-shop__card-img js-card-zoom-img" src="{{ item.image.url }}" alt=""/>
+                        </div>
+                        <!-- end  -->
+                        <div class="">
+                          <img class="page-shop__card-img js-card-zoom-img" src="{{ item.image.url }}" alt=""/>
+                        </div>
+                        <!-- end  -->
+                        <div class="">
+                          <img class="page-shop__card-img js-card-zoom-img" src="{{ item.image.url }}" alt=""/>
+                        </div>
+                        <!-- end -->
+                        <div class="">
+                          <img class="page-shop__card-img js-card-zoom-img" src="{{ item.image.url }}" alt=""/>
+                        </div>
+                        <!-- end -->
+                      </div>
+                      <!-- end of .js-zoom-card-swiper -->
+
+                      <!-- Если 1 фотография, то скрыть нижний блок .page-shop__qview-card-thumbs -->
+                      <div class="page-shop__qview-card-thumbs js-zoom-card-thumbs-slick">
+                        <div class="page-shop__qview-card-thumb">
+                          <img class="page-shop__qview-card-img" src="{{ item.image.url }}" alt=""/>
+                        </div>
+                        <!-- end of .swiper-slide -->
+                        <div class="page-shop__qview-card-thumb">
+                          <img class="page-shop__qview-card-img" src="{{ item.image.url }}" alt=""/>
+                        </div>
+                        <!-- end of .swiper-slide -->
+                        <div class="page-shop__qview-card-thumb">
+                          <img class="page-shop__qview-card-img" src="{{ item.image.url }}" alt=""/>
+                        </div>
+                        <!-- end of .swiper-slide -->
+                        <div class="page-shop__qview-card-thumb">
+                          <img class="page-shop__qview-card-img" src="{{ item.image.url }}" alt=""/>
+                        </div>
+                      </div>
+                      <!-- end of .swiper-container .js-zoom-card-thumbs-swiper -->
+                    </div>
+                    <!-- end of .page-shop__qview-gallery -->
+                    <div class="page-shop__qview-details">
+                      <h1 class="page-shop__card-title">{{ item.title }}</h1>
+                      <h2 class="page-shop__card-cost">CHF{{ item.price }}</h2>
+                      <div class="page-shop__card-btn-container">
+                        <button class="page-shop__card-add btn btn-primary">Add to card</button>
+                      </div>
+                      <p class="page-shop__card-excerpt page-text">{{ item.description }}</p>
+                      <div class="page-shop__card-link-container">
+                        <a class="page-shop__card-full-link" href="{{ item.get_absolute_url }}">View full link</a>
+                      </div>
+                    </div>
+                    <!-- end of .page-shop__qview-details -->
+                  </div>
+                  <!-- end of .page-shop__container -->
+                </div>
+                <!-- end of .page-shop__qview swiper-slide -->
+              {% endfor %}
+            </div>
+          </div>
+          <!-- end .swiper-button-prev next -->
+        </div>
+      </div>
+    </section>
+    <!-- end .page-shop .page-main__content -->
+  </main>
+  <!-- end .page-main -->
+
+  <div class="footer-message">
+    <div class="page-container">
+      <p class="page-shop__qview-card-thumb">
+        Delivery in <i class="page-text--highlight">SWITZERLAND</i> is free,
+        fast and secure.
+      </p>
     </div>
+  </div>
 
 {% endblock content %}

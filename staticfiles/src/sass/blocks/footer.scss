@@ -1,0 +1,75 @@
+.page-footer {
+  @include mdx($tablet-width) {
+    margin-bottom: $padGeneral*2;
+  }
+
+  @include mdn($tablet-width + 1) {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
+  &__list {
+    list-style: none;
+    max-width: 660px;
+    margin: 0 auto;
+
+    display: flex;
+    justify-content: space-between;
+
+    @include mdx($tablet-width) {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    @include mdn($tablet-width + 1) {
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+
+  &__item {
+    @include mdx($tablet-width) {
+      &:not(:last-child) {
+        margin-bottom: $padGeneral*2;
+      }
+    }
+
+    /* @include mdn($tablet-width + 1) {
+      padding-top: 20px;
+      padding-bottom: 20px;
+    } */
+  }
+
+  &__link {
+    display: block;
+    color: $colorTextLinkFooter;
+    font-size: 18px;
+    line-height: $lh;
+    text-decoration: none;
+    text-align: center;
+
+    // @include mdx($tablet-width) {}
+
+    // @include mdn($tablet-width + 1) {}
+  }
+}
+
+.footer-message {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #020202;
+  padding: 20px 0;
+  text-align: center;
+  font-size: $fsFooterMessage;
+  color: $colorFooterMessage;
+
+  z-index: 2;
+
+  @include mdx($tablet-width) {
+    position: relative;
+  }
+
+  // @include mdn($tablet-width + 1) {}
+}

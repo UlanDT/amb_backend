@@ -41,6 +41,10 @@ p {
   margin: 0;
 }
 
+figure {
+  margin: 0;
+}
+
 ul {
   padding-left: 0;
 }
@@ -157,17 +161,21 @@ blockquote {
 
   @include mdx($tablet-width) {
     display: block;
+
+    &__btn {
+      background-color: transparent;
+      border: none;
+      outline: none;
+      cursor: pointer;
+
+      img {
+        vertical-align: middle;
+      }
+    }
   }
 
   @include mdn($tablet-width + 1) {
     display: none;
-  }
-
-  &__btn {
-    background-color: transparent;
-    border: none;
-    outline: none;
-    cursor: pointer;
   }
 }
 
@@ -184,4 +192,14 @@ blockquote {
       left: 0px;
     }
   }
+}
+
+.mfp-close-btn-in .mfp-close {
+  color: #fff;
+  background-color: rgba(#fff, .2);
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  color: $colorTextWhite;
 }

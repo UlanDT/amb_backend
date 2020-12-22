@@ -1,0 +1,111 @@
+@font-face {
+    font-family: 'Rubik';
+    src: url("Rubik.7fe9663229ca.eot");
+    src: url("Rubik.7fe9663229ca.eot?#iefix") format('embedded-opentype'),
+        url("Rubik.99980e91938e.woff2") format('woff2'),
+        url("Rubik.46bacc94f9e6.woff") format('woff'),
+        url("Rubik.98698c5a7789.ttf") format('truetype'),
+        url("Rubik.453d4235194c.svg#Rubik") format('svg');
+    font-weight: 400;
+    font-style: normal;
+    font-stretch: normal;
+    unicode-range: U+0020-F6CE;
+}
+
+@font-face {
+    font-family: 'Roboto Black';
+    src: url("Roboto Black.1ba413123293.eot");
+    src: url("Roboto Black.1ba413123293.eot?#iefix") format('embedded-opentype'),
+        url("Roboto Black.d33c6922d649.woff2") format('woff2'),
+        url("Roboto Black.7a0528bb27cc.woff") format('woff'),
+        url("Roboto Black.1602fa276a50.ttf") format('truetype'),
+        url("Roboto Black.13a9eed9cd55.svg#Roboto Black") format('svg');
+    font-weight: 900;
+    font-style: normal;
+    font-stretch: normal;
+    unicode-range: U+0020-2044;
+}
+
+@font-face {
+    font-family: 'Roboto Medium';
+    src: url("Roboto Medium.47af78251895.eot");
+    src: url("Roboto Medium.47af78251895.eot?#iefix") format('embedded-opentype'),
+        url("Roboto Medium.62d718e32d56.woff2") format('woff2'),
+        url("Roboto Medium.e7147c38f6f8.woff") format('woff'),
+        url("Roboto Medium.e67cc3326cc3.ttf") format('truetype'),
+        url("Roboto Medium.5ed1d9662a22.svg#Roboto Medium") format('svg');
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    unicode-range: U+0020-2044;
+}
+
+@font-face {
+    font-family: 'Roboto Medium';
+    src: url("Roboto Medium Italic.d32a24f448fd.eot");
+    src: url("Roboto Medium Italic.d32a24f448fd.eot?#iefix") format('embedded-opentype'),
+        url("Roboto Medium Italic.5d09abff9df2.woff2") format('woff2'),
+        url("Roboto Medium Italic.5c43de781838.woff") format('woff'),
+        url("Roboto Medium Italic.b6d2d034c225.ttf") format('truetype'),
+        url("Roboto Medium Italic.f1d270101596.svg#Roboto Medium Italic") format('svg');
+    font-weight: 500;
+    font-style: italic;
+    font-stretch: normal;
+    unicode-range: U+0020-2044;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url("Roboto.70534f561bd2.eot");
+    src: url("Roboto.70534f561bd2.eot?#iefix") format('embedded-opentype'),
+        url("Roboto.63c288aeb0c6.woff2") format('woff2'),
+        url("Roboto.3d1479067677.woff") format('woff'),
+        url("Roboto.5fb4a359beb2.ttf") format('truetype'),
+        url("Roboto.5c964aa309cd.svg#Roboto") format('svg');
+    font-weight: 400;
+    font-style: normal;
+    font-stretch: normal;
+    unicode-range: U+0020-2044;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url("Roboto Bold.8d9ffa18a61c.eot");
+    src: url("Roboto Bold.8d9ffa18a61c.eot?#iefix") format('embedded-opentype'),
+        url("Roboto Bold.16a4a6028535.woff2") format('woff2'),
+        url("Roboto Bold.2e401bdd9326.woff") format('woff'),
+        url("Roboto Bold.ce9b247971b5.ttf") format('truetype'),
+        url("Roboto Bold.19bebdc12e54.svg#Roboto Bold") format('svg');
+    font-weight: 700;
+    font-style: normal;
+    font-stretch: normal;
+    unicode-range: U+0020-2044;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url("Roboto Bold Italic.823a2c533c99.eot");
+    src: url("Roboto Bold Italic.823a2c533c99.eot?#iefix") format('embedded-opentype'),
+        url("Roboto Bold Italic.87e09463bdc2.woff2") format('woff2'),
+        url("Roboto Bold Italic.8cf7465fa9c2.woff") format('woff'),
+        url("Roboto Bold Italic.dcd46964410d.ttf") format('truetype'),
+        url("Roboto Bold Italic.5e44aff99104.svg#Roboto Bold Italic") format('svg');
+    font-weight: 700;
+    font-style: italic;
+    font-stretch: normal;
+    unicode-range: U+0020-2044;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url("Roboto Italic.4858e4514a2c.eot");
+    src: url("Roboto Italic.4858e4514a2c.eot?#iefix") format('embedded-opentype'),
+        url("Roboto Italic.c0e009c1c482.woff2") format('woff2'),
+        url("Roboto Italic.07e0a929b5e7.woff") format('woff'),
+        url("Roboto Italic.4b787a0a7ff5.ttf") format('truetype'),
+        url("Roboto Italic.25607b41c392.svg#Roboto Italic") format('svg');
+    font-weight: 400;
+    font-style: italic;
+    font-stretch: normal;
+    unicode-range: U+0020-2044;
+}
