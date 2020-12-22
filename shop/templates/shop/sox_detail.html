@@ -3,21 +3,92 @@
 {% block title %} {{ sox.title }} {% endblock title %}
 
 {% block content %}
-    <section class="page-shop page-main__content page-main--top">
-        <div class="page-shop__container page-container">
-            {{ sox.title }}
-            <img src="{{ sox.image.url }}" alt ='sox'>
-            {{ sox.price }}
-            <form action="{% url 'cart:cart_add' sox.id %}" method="post">
-                {{ cart_product_form }}
-                {% csrf_token %}
-                <input type="submit" value="Add to cart">
-            </form>
+  <section class="page-shop page-main__content page-main--top">
+    <div class="page-shop__container page-container">
+      <div class="page-shop__qview-container">
+        <div class="page-shop__qview-gallery page-shop__gallery">
+          <div class="js-zoom-card-slick">
+            <div class="">
+              <img class="page-shop__card-img js-card-zoom-img" src="{{ sox.image.url }}" alt='{{ sox.title }}'>
+            </div>
+            <!-- end  -->
+            <div class="">
+              <img class="page-shop__card-img js-card-zoom-img" src="{{ sox.image.url }}" alt='{{ sox.title }}'>
+            </div>
+            <!-- end  -->
+          </div>
+          <!-- end of .js-zoom-card-swiper -->
 
-            {{ sox.description|linebreaks }}
-            {{ sox.fabrics }}
-            {{ sox.size }}
+          <!-- Если 1 фотография, то скрыть нижний блок .page-shop__qview-card-thumbs -->
+          <div class="page-shop__qview-card-thumbs js-zoom-card-thumbs-slick">
+            <div class="page-shop__qview-card-thumb">
+              <img class="page-shop__qview-card-img" src="{{ sox.image.url }}" alt=""/>
+            </div>
+            <!-- end -->
+            <div class="page-shop__qview-card-thumb">
+              <img class="page-shop__qview-card-img" src="{{ sox.image.url }}" alt=""/>
+            </div>
+            <!-- end -->
+          </div>
+          <!-- end of .js-zoom-card-thumbs-swiper -->
         </div>
-    </section>
+        <!-- end of .page-shop__qview-gallery -->
+        <div class="page-shop__qview-details page-shop__details">
+          <h1 class="page-shop__card-title">{{ sox.title }}</h1>
+          <h2 class="page-shop__card-cost">CHF{{ sox.price }}</h2>
+          <div class="page-shop__card-btn-container">
+            <form action="{% url 'cart:cart_add' sox.id %}" method="post">
+              {{ cart_product_form }}
+              {% csrf_token %}
+              <input class="page-shop__card-add btn btn-primary" type="submit" value="Add to cart">
+              {% comment %}
+                 <select class="js-size-nice-select" name="size" id="id_s_size">
+                  <option value="s" default hidden>Select a size</option>
+                  <option value="s">S</option>
+                  <option value="m">M</option>
+                  <option value="xl">XL</option>
+                </select>
+              {% endcomment %}
+
+              {% comment %}
+              <label class="" for="id_quantity">
+                <p class="page-text">Quantity:</p>
+                <input type="number" name="quantity" min="0" required id="id_quantity">
+              </label>
+              <button class="page-shop__card-add btn btn-primary" type="submit">Add to card</button>
+              {% endcomment %}
+            </form>
+          </div>
+          <p class="page-shop__card-excerpt page-text">{{ sox.description|linebreaks }}</p>
+          <div>
+            <p>{{ sox.fabrics }}</p>
+            <p>{{ sox.size }}</p>
+          </div>
+        </div>
+        <!-- end of .page-shop__qview-details -->
+      </div>
+      <!-- end of .page-shop__container -->
+    </div>
+  </section>
 
 {% endblock content %}
+<!--
+{% comment %}
+<section class="page-shop page-main__content page-main--top">
+    <div class="page-shop__container page-container">
+      {{ sox.title }}
+      <img src="{{ sox.image.url }}" alt='{{ sox.title }}'>
+      {{ sox.price }}
+      <form action="{% url 'cart:cart_add' sox.id %}" method="post">
+        {{ cart_product_form }}
+        {% csrf_token %}
+        <input type="submit" value="Add to cart">
+      </form>
+
+      {{ sox.description|linebreaks }}
+      {{ sox.fabrics }}
+      {{ sox.size }}
+    </div>
+  </section>
+  {% endcomment %}
+-->

@@ -1,9 +1,9 @@
 .btn {
+  font-size: $fsButton;
   padding: $padBtnVer $padBtnHor;
   border-radius: 44px;
   border: 1px solid $bgButton;
   color: $colorTextButton;
-  font-size: $fsButton;
   line-height: 24px;
   cursor: pointer;
   transition: background .1s linear;

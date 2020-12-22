@@ -16,6 +16,7 @@
   &__container {
     @include mdx($tablet-width) {
       // padding-top: 90px;
+      margin-bottom: 40px;
     }
 
     @include mdn($tablet-width + 1) {
@@ -189,12 +190,14 @@
     }
   }
 
+  &__gallery,
   &__qview-gallery {
     flex-basis: 60%;
     max-width: 100%;
     overflow: hidden;
   }
 
+  &__details,
   &__qview-details {
     flex-basis: 40%;
   }
@@ -202,6 +205,15 @@
   &__qview-details,
   &__qview-gallery {
     padding: 16px;
+  }
+
+  &__details,
+  &__gallery {
+    padding: 16px;
+
+    @include mdx($mobile-width-h) {
+      flex-basis: 100%;
+    }
   }
 
   &__qview-btn {
@@ -298,7 +310,6 @@
       opacity: .5;
     }
   }
-
 
   &__products-title {
     color: $colorTextShopTitle;

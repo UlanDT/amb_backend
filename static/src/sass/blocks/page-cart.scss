@@ -21,8 +21,8 @@
   }
 
   &__table-wrapper {
-    overflow-x: scroll;
     margin-bottom: 20px;
+    overflow-x: auto;
   }
 
   &__table-wrapper-container {
@@ -50,6 +50,17 @@
 
   &__tbody-quantity {
     display: flex;
+
+    input[type=submit] {
+      @include mdx($tablet-width) {
+        font-size: $fsButtonM;
+        padding: 0.7em 1.4em;
+      }
+      @include mdn($tablet-width + 1) {
+        font-size: $fsButton;
+        padding: 0.62em 1.25em;
+      }
+    }
 
     @include mdx($tablet-width) {
       flex-flow: column wrap;

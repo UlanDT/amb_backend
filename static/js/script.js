@@ -19,6 +19,7 @@ $(document).ready(function () {
   const SlickShopQviewCard = $('.js-shop-qview-card-slick');
   const PopupQviewBtn = $(".js-popup-qview-btn");
   const PopupQviewCard = $(".js-popup-zoom-qview-card");
+  const NiceSelectSelectBox = $(".js-size-nice-select");
 
   let swiperActiveIndexGalleryPage = 0;
 
@@ -318,7 +319,38 @@ $(document).ready(function () {
         }
       }
     });
+  } else if (SlickZoomCard || SlickZoomCardThumbs) {
+    SlickZoomCard.slick({
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      adaptiveHeight: true,
+      arrows: false,
+      centerMode: true,
+      centerPadding: "0",
+      infinite: false,
+      asNavFor: '.js-zoom-card-thumbs-slick',
+      draggable: false,
+    });
+
+    SlickZoomCardThumbs.slick({
+      slidesToShow: 3,
+      slidesToScroll: 1,
+      infinite: false,
+      asNavFor: '.js-zoom-card-slick',
+      arrows: false,
+      dots: false,
+      focusOnSelect: true,
+    });
+
+    $('.js-card-zoom-img')
+        .wrap('<span style="display:inline-block"></span>')
+        .css('display', 'block')
+        .parent()
+        .zoom();
   }
+
+  /* Nice Select plugin */
+  NiceSelectSelectBox.niceSelect();
 
   SelectboxLangList.on("click", function (e) {
     if (e.target.tagName === "A") {
