@@ -22,6 +22,7 @@ $(document).ready(function () {
   const NiceSelectSelectBox = $(".js-size-nice-select");
 
   let swiperActiveIndexGalleryPage = 0;
+  let hideDropLangListTimeout = null;
 
   function checkDOMForSwiper(elm, obj) {
     if (!$(elm).length) {
@@ -95,54 +96,10 @@ $(document).ready(function () {
     }
   });
 
-  // const ShopQviewCardSwiper = checkDOMForSwiper(".js-shop-qview-card-swiper", {
-  //   slidesPerView: 1,
-  //   spaceBetween: 50,
-  //   watchOverflow: true,
-  //   navigation: {
-  //     nextEl: '.swiper-button-next',
-  //     prevEl: '.swiper-button-prev',
-  //   },
-  // });
-
   const SwiperZoomCardThumbs = checkDOMForSwiper(".js-zoom-card-thumbs-swiper", {
-    // nested: true,
     spaceBetween: 16,
     slidesPerView: 4,
-    // watchSlidesVisibility: true,
-    // watchSlidesProgress: true,
-    // observer: true,
-    // observeParents: true,
   });
-
-  // const SwiperZoomCard = checkDOMForSwiper(".js-zoom-card-swiper", {
-  //   // nested: true,
-  //   spaceBetween: 16,
-  //   zoom: true,
-  //   observer: true,
-  //   observeParents: true,
-  //   thumbs: {
-  //     swiper: SwiperZoomCardThumbs,
-  //   },
-  // });
-
-  /*
-   $('.slider-for').slick({
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      arrows: false,
-      fade: true,
-      asNavFor: '.slider-nav'
-    });
-    $('.slider-nav').slick({
-      slidesToShow: 3,
-      slidesToScroll: 1,
-      asNavFor: '.slider-for',
-      dots: true,
-      centerMode: true,
-      focusOnSelect: true
-    });
-  * */
 
   const SwiperZoomCard = new Swiper('.js-zoom-card-swiper', {
     thumbs: {
@@ -351,22 +308,29 @@ $(document).ready(function () {
   }
 
   /* Nice Select plugin */
-  NiceSelectSelectBox.niceSelect();
+  if (NiceSelectSelectBox.length) {
+    NiceSelectSelectBox.niceSelect();
+  }
 
   SelectboxLangList.on("click", function (e) {
     if (e.target.tagName === "A") {
       SelectboxValueLangList.text(e.target.textContent);
     }
 
-    setTimeout(function () {
-      SelectboxDropLangList.hide();
-      $(".lang-selectbox").removeClass("lang-selectbox--up");
-    }, 1500);
-
     $(".lang-selectbox").toggleClass("lang-selectbox--up");
 
     SelectboxDropLangList.toggle();
   });
 
+  SelectboxLangList.on("mouseleave", function (e) {
+    hideDropLangListTimeout = setTimeout(function () {
+      SelectboxDropLangList.hide();
+      $(".lang-selectbox").removeClass("lang-selectbox--up");
+      clearTimeout(hideDropLangListTimeout);
+    }, 2000);
+  });
 
+  SelectboxLangList.on("mouseenter", function (e) {
+    clearTimeout(hideDropLangListTimeout);
+  });
 });
