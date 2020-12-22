@@ -916,9 +916,6 @@ blockquote {
   @media (min-width: 992px) {
     .page-shop__qview-container {
       flex-flow: row nowrap; } }
-  @media (max-width: 479px) {
-    .page-shop__qview-container {
-      flex-flow: column wrap; } }
 
 .page-shop__gallery, .page-shop__qview-gallery {
   flex-basis: 60%;
@@ -930,6 +927,9 @@ blockquote {
 
 .page-shop__qview-details, .page-shop__qview-gallery {
   padding: 16px; }
+  @media (max-width: 767px) {
+    .page-shop__qview-details, .page-shop__qview-gallery {
+      flex-basis: 100%; } }
 
 .page-shop__details, .page-shop__gallery {
   padding: 16px; }

@@ -273,13 +273,13 @@ $(document).ready(function () {
           PopupQviewCard.show();
 
           SlickShopQviewCard.slick({
+            slidesToShow: 1,
+            slidesToScroll: 1,
             dots: false,
             infinite: false,
             prevArrow: "<div class=\"swiper-button-prev page-shop__qview-arrow-prev\"></div>",
             nextArrow: "<div class=\"swiper-button-next page-shop__qview-arrow-next\"></div>",
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            draggable: false
+            swipe: false,
           });
 
           SlickZoomCard.slick({
@@ -288,19 +288,20 @@ $(document).ready(function () {
             adaptiveHeight: true,
             arrows: false,
             centerMode: true,
-            centerPadding: "50px",
+            centerPadding: "0",
             infinite: false,
-            asNavFor: '.js-zoom-card-thumbs-slick'
+            asNavFor: '.js-zoom-card-thumbs-slick',
+            swipe: false,
           });
 
           SlickZoomCardThumbs.slick({
             slidesToShow: 4,
-            infinite: false,
             slidesToScroll: 1,
+            infinite: false,
             asNavFor: '.js-zoom-card-slick',
             arrows: false,
             dots: false,
-            focusOnSelect: true
+            focusOnSelect: true,
           });
 
           $('.js-card-zoom-img')
@@ -329,7 +330,7 @@ $(document).ready(function () {
       centerPadding: "0",
       infinite: false,
       asNavFor: '.js-zoom-card-thumbs-slick',
-      draggable: false,
+      swipe: false,
     });
 
     SlickZoomCardThumbs.slick({

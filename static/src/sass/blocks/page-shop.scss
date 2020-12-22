@@ -185,9 +185,9 @@
       flex-flow: row nowrap;
     }
 
-    @include mdx($mobile-width) {
-      flex-flow: column wrap;
-    }
+    //@include mdx($mobile-width) {
+    //  flex-flow: column wrap;
+    //}
   }
 
   &__gallery,
@@ -205,6 +205,10 @@
   &__qview-details,
   &__qview-gallery {
     padding: 16px;
+
+    @include mdx($mobile-width-h) {
+      flex-basis: 100%;
+    }
   }
 
   &__details,
