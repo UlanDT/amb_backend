@@ -819,7 +819,9 @@ blockquote {
 
 .page-shop__filters {
   list-style: none;
-  font-size: 16px; }
+  font-size: 16px;
+  flex-basis: 10%;
+  min-width: 150px; }
   @media (max-width: 991px) {
     .page-shop__filters {
       margin-bottom: 20px; } }
@@ -834,14 +836,13 @@ blockquote {
     align-items: flex-start; } }
 
 .page-shop__products {
-  display: flex;
+  margin-right: -10px;
+  flex-basis: 85%;
   /* @include md-min-max($mobile-width, $tablet-width + 1) {
       justify-content: flex-start;
     } */ }
   @media (max-width: 991px) {
     .page-shop__products {
-      flex-flow: row wrap;
-      justify-content: center;
       height: 65vh;
       overflow-x: scroll;
       -ms-overflow-style: none;
@@ -849,34 +850,30 @@ blockquote {
       scrollbar-width: none; }
       .page-shop__products::-webkit-scrollbar {
         display: none; } }
-  @media (min-width: 992px) {
-    .page-shop__products {
-      flex-flow: row wrap;
-      flex-basis: 85%;
-      justify-content: space-between; } }
   @media (max-width: 479px) {
     .page-shop__products {
       height: 60vh;
       justify-content: center; } }
 
-@media (max-width: 991px) {
-  .page-shop__product {
-    width: 164px;
-    margin-right: 10px;
-    margin-bottom: 10px; } }
-
-@media (min-width: 992px) {
-  .page-shop__product {
-    margin-bottom: 20px; } }
-
-@media (max-width: 479px) {
-  .page-shop__product {
-    width: 48%;
-    min-width: 120px;
-    max-width: 164px; }
-    .page-shop__product:nth-child(even) {
-      margin-right: 0;
-      margin-bottom: 0; } }
+.page-shop__product {
+  display: inline-block; }
+  @media (max-width: 991px) {
+    .page-shop__product {
+      width: 164px;
+      margin-right: 10px;
+      margin-bottom: 10px; } }
+  @media (min-width: 992px) {
+    .page-shop__product {
+      margin-right: 10px;
+      margin-bottom: 20px; } }
+  @media (max-width: 479px) {
+    .page-shop__product {
+      width: 48%;
+      min-width: 120px;
+      max-width: 164px; }
+      .page-shop__product:nth-child(even) {
+        margin-right: 0;
+        margin-bottom: 0; } }
 
 .page-shop__product-card {
   position: relative; }
