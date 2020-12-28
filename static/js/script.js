@@ -20,6 +20,8 @@ $(document).ready(function () {
   const PopupQviewBtn = $(".js-popup-qview-btn");
   const PopupQviewCard = $(".js-popup-zoom-qview-card");
   const NiceSelectSelectBox = $(".js-size-nice-select");
+  const CloseFooterMsg = $(".js-close-footer-msg");
+  const IsQview = $(".js-is-qview");
 
   let swiperActiveIndexGalleryPage = 0;
   let hideDropLangListTimeout = null;
@@ -61,6 +63,14 @@ $(document).ready(function () {
   const SwiperForShopFilters = checkDOMForSwiper('.js-shop-filters-swiper', {
     slidesPerView: "auto",
     spaceBetween: 16,
+    breakpoints: {
+      992: {
+        centerInsufficientSlides: false,
+      },
+      370: {
+        centerInsufficientSlides: true,
+      },
+    }
   });
 
   const SwiperSaleList = checkDOMForSwiper('.js-salelist-swiper', {
@@ -160,13 +170,15 @@ $(document).ready(function () {
     });
   };
 
-  ShopProducts.each(function (_, card) {
-    $(card).hover(function (evt) {
-      $(card).find(".page-shop__card").addClass("page-shop__card--hover");
-    }, function (evt) {
-      $(card).find(".page-shop__card").removeClass("page-shop__card--hover");
+  if (IsQview.data("is-qview")) {
+    ShopProducts.each(function (_, card) {
+      $(card).hover(function (evt) {
+        $(card).find(".page-shop__card").addClass("page-shop__card--hover");
+      }, function (evt) {
+        $(card).find(".page-shop__card").removeClass("page-shop__card--hover");
+      });
     });
-  });
+  }
 
   ShopFilters.on("click", function (evt) {
     let elm = $(evt.currentTarget);
@@ -261,11 +273,7 @@ $(document).ready(function () {
             focusOnSelect: true,
           });
 
-          $('.js-card-zoom-img')
-              .wrap('<span style="display:inline-block"></span>')
-              .css('display', 'block')
-              .parent()
-              .zoom();
+          $('.js-card-zoom-img').zoom();
         },
         close: function (e) {
           PopupQviewCard.hide();
@@ -332,5 +340,9 @@ $(document).ready(function () {
 
   SelectboxLangList.on("mouseenter", function (e) {
     clearTimeout(hideDropLangListTimeout);
+  });
+
+  CloseFooterMsg.on("click", function (e) {
+    CloseFooterMsg.parents('.footer-message').toggle();
   });
 });

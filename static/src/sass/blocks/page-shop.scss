@@ -282,9 +282,12 @@
     margin-bottom: 12px;
   }
 
+  //&__page-shop__card-img {}
+
   &__card-img {
-    width: 600px;
+    width: 100%;
   }
+
 
   &__qview-card-thumbs {
     margin-top: 16px;
@@ -380,8 +383,8 @@
 
 /* end .page-shop */
 
-.swiper--test {
-  &mob {
+.swiper {
+  &--mob-show {
     @include mdx($tablet-width) {
       display: block;
     }
@@ -391,7 +394,7 @@
     }
   }
 
-  &desk {
+  &--desk-show {
     @include mdx($tablet-width) {
       display: none;
     }

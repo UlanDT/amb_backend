@@ -87,4 +87,30 @@
   //}
 
   // @include mdn($tablet-width + 1) {}
+
+  &__container {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__text {
+    flex-grow: 1;
+    text-align: center;
+  }
+
+  &__close {
+    border: none;
+    background-color: transparent;
+    width: 35px;
+    height: 20px;
+    padding: 0 5px;
+    cursor: pointer;
+    text-align: center;
+
+    path {
+      fill: #fff;
+    }
+  }
 }

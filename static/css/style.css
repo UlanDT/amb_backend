@@ -456,71 +456,57 @@ blockquote {
     background-position: right 10px; }
 
 /* end .lang-list */
-@media (min-width: 992px) {
-  .page-main {
-    margin-bottom: 40px; } }
-
-@media (max-width: 991px) {
-  .page-main--top {
-    padding-top: 90px; } }
-
-@media (min-width: 992px) {
-  .page-main--top {
-    padding-top: 125px; } }
-
-.page-main__wrapper {
-  display: flex; }
+.page-main {
+  margin-bottom: 40px; }
   @media (max-width: 991px) {
-    .page-main__wrapper {
-      margin-top: 120px;
-      flex-direction: column; } }
+    .page-main--top {
+      padding-top: 90px; } }
   @media (min-width: 992px) {
-    .page-main__wrapper {
-      height: 100vh;
-      max-height: 768px;
-      max-width: 1000px;
-      margin-left: auto;
-      margin-right: auto;
-      flex-flow: row nowrap;
-      justify-content: space-between;
-      align-items: center; } }
+    .page-main--top {
+      padding-top: 125px; } }
+  .page-main__wrapper {
+    display: flex; }
+    @media (max-width: 991px) {
+      .page-main__wrapper {
+        margin-top: 120px;
+        flex-direction: column; } }
+    @media (min-width: 992px) {
+      .page-main__wrapper {
+        height: 100vh;
+        max-height: 768px;
+        max-width: 1000px;
+        margin-left: auto;
+        margin-right: auto;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items: center; } }
+    @media (min-width: 992px) {
+      .page-main__wrapper--reverse {
+        flex-direction: row-reverse; } }
+  .page-main__content-main {
+    background-color: #EBEDEE; }
   @media (min-width: 992px) {
-    .page-main__wrapper--reverse {
-      flex-direction: row-reverse; } }
-
-.page-main__content-main {
-  background-color: #EBEDEE; }
-
-@media (min-width: 992px) {
-  .page-main__first {
-    width: 517px; } }
-
-@media (max-width: 991px) {
-  .page-main__last img {
-    width: 100%; } }
-
-@media (min-width: 992px) {
-  .page-main__last {
-    width: 387px; } }
-
-.page-main__text {
-  line-height: 150%; }
-
-.page-main__text, .page-main__subtitle, .page-main__title {
-  margin-bottom: 16px; }
-
-.page-main__title {
-  color: #393939; }
-
-.page-main__subtitle {
-  font-weight: normal; }
-
-.page-main__btns-action {
-  padding: 8px 0;
-  margin-bottom: 32px; }
-
-.page-main__btn-action:not(:last-child) {
-  margin-right: 12px; }
+    .page-main__first {
+      width: 517px; } }
+  @media (max-width: 991px) {
+    .page-main__last img {
+      width: 100%; } }
+  @media (min-width: 992px) {
+    .page-main__last {
+      width: 387px; } }
+  .page-main__text {
+    line-height: 150%; }
+  .page-main__text, .page-main__subtitle, .page-main__title {
+    margin-bottom: 16px; }
+  .page-main__title {
+    color: #393939; }
+  .page-main__subtitle {
+    font-weight: normal; }
+  .page-main__btns-action {
+    padding: 8px 0;
+    margin-bottom: 32px; }
+  .page-main__btn-action:not(:last-child) {
+    margin-right: 12px; }
 
 /* end .page-main */
 @media (min-width: 992px) {
@@ -982,7 +968,7 @@ blockquote {
   margin-bottom: 12px; }
 
 .page-shop__card-img {
-  width: 600px; }
+  width: 100%; }
 
 .page-shop__qview-card-thumbs {
   margin-top: 16px; }
@@ -1049,19 +1035,19 @@ blockquote {
 
 /* end .page-shop */
 @media (max-width: 991px) {
-  .swiper--testmob {
+  .swiper--mob-show {
     display: block; } }
 
 @media (min-width: 992px) {
-  .swiper--testmob {
+  .swiper--mob-show {
     display: none; } }
 
 @media (max-width: 991px) {
-  .swiper--testdesk {
+  .swiper--desk-show {
     display: none; } }
 
 @media (min-width: 992px) {
-  .swiper--testdesk {
+  .swiper--desk-show {
     display: block; } }
 
 .page-sale {
@@ -1340,3 +1326,21 @@ blockquote {
   font-size: 18px;
   color: #fff;
   z-index: 4; }
+  .footer-message__container {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center; }
+  .footer-message__text {
+    flex-grow: 1;
+    text-align: center; }
+  .footer-message__close {
+    border: none;
+    background-color: transparent;
+    width: 35px;
+    height: 20px;
+    padding: 0 5px;
+    cursor: pointer;
+    text-align: center; }
+    .footer-message__close path {
+      fill: #fff; }
