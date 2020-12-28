@@ -1,5 +1,13 @@
 .page-main {
 
+  //@include mdx($tablet-width) {
+  //  padding-top: 90px;
+  //}
+
+  @include mdn($tablet-width + 1) {
+    margin-bottom: 40px;
+  }
+
   &--top {
 
     @include mdx($tablet-width) {
