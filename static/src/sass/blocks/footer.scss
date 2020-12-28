@@ -80,11 +80,11 @@
   font-size: $fsFooterMessage;
   color: $colorFooterMessage;
 
-  z-index: 2;
+  z-index: 4;
 
-  @include mdx($tablet-width) {
-    position: relative;
-  }
+  //@include mdx($tablet-width) {
+  //  position: relative;
+  //}
 
   // @include mdn($tablet-width + 1) {}
 }

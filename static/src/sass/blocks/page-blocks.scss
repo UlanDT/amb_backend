@@ -60,9 +60,22 @@
 /* end .page-community */
 
 .page-sales {
+  min-height: 100vh;
+  max-height: 768px;
+
+  display: flex;
+  align-items: center;
+
+  //@include mdx($tablet-width) {}
+
+  //@include mdn($tablet-width + 1) {}
+
   &__container {
-    margin-top: 120px;
-    margin-bottom: 120px;
+    width: 100%;
+
+    //@include mdx($tablet-width) {}
+
+    //@include mdn($tablet-width + 1) {}
   }
 
   &__title {

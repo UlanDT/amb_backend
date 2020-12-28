@@ -456,6 +456,10 @@ blockquote {
     background-position: right 10px; }
 
 /* end .lang-list */
+@media (min-width: 992px) {
+  .page-main {
+    margin-bottom: 40px; } }
+
 @media (max-width: 991px) {
   .page-main--top {
     padding-top: 90px; } }
@@ -559,39 +563,41 @@ blockquote {
   margin-right: 24px; }
 
 /* end .page-community */
-.page-sales__container {
-  margin-top: 120px;
-  margin-bottom: 120px; }
-
-.page-sales__title {
-  font-size: 28px;
-  font-weight: normal;
-  line-height: 150%;
-  text-align: center;
-  max-width: 745px;
-  margin: 0 auto; }
-  @media (max-width: 991px) {
-    .page-sales__title {
-      margin-bottom: 64px; } }
-  @media (min-width: 992px) {
-    .page-sales__title {
-      margin-bottom: 86px; } }
-
-.page-sales__item {
-  width: 197px;
-  text-decoration: none; }
-  .page-sales__item-img {
-    margin-bottom: 20px; }
-  .page-sales__item-title {
-    font-family: "Arial", Arial, sans-serif;
+.page-sales {
+  min-height: 100vh;
+  max-height: 768px;
+  display: flex;
+  align-items: center; }
+  .page-sales__container {
+    width: 100%; }
+  .page-sales__title {
+    font-size: 28px;
     font-weight: normal;
-    color: #393939;
-    line-height: 24px;
-    margin-bottom: 8px; }
-  .page-sales__item-cost {
-    color: #666666;
-    font-size: 16px;
-    line-height: 20px; }
+    line-height: 150%;
+    text-align: center;
+    max-width: 745px;
+    margin: 0 auto; }
+    @media (max-width: 991px) {
+      .page-sales__title {
+        margin-bottom: 64px; } }
+    @media (min-width: 992px) {
+      .page-sales__title {
+        margin-bottom: 86px; } }
+  .page-sales__item {
+    width: 197px;
+    text-decoration: none; }
+    .page-sales__item-img {
+      margin-bottom: 20px; }
+    .page-sales__item-title {
+      font-family: "Arial", Arial, sans-serif;
+      font-weight: normal;
+      color: #393939;
+      line-height: 24px;
+      margin-bottom: 8px; }
+    .page-sales__item-cost {
+      color: #666666;
+      font-size: 16px;
+      line-height: 20px; }
 
 /* end .page-sales */
 .page-home {
@@ -1333,7 +1339,4 @@ blockquote {
   text-align: center;
   font-size: 18px;
   color: #fff;
-  z-index: 2; }
-  @media (max-width: 991px) {
-    .footer-message {
-      position: relative; } }
+  z-index: 4; }
