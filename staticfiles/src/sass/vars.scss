@@ -1,0 +1,134 @@
+// VARIABLES
+
+// color bgs
+$bgSubscribe: rgba(#F5F5F5, 0.79);
+$bgContent: #EBEDEE;
+$bgContentHome: #EBEDEE;
+$bgMobileMenu: #EBEDEE;
+$bgButton: #FFC499;
+$bgButtonView: #FF994F;
+$bgSocialIcon: #393939;
+
+// fill svg
+$fillShopCart: #C7C7C7;
+$fillShopCartDark: #585858;
+$fillShopCartNotification: #FF4F4F;
+
+// color texts
+$colorTextBlack: #060606;
+$colorTextWhite: #ffffff;
+$colorTextH1: #393939;
+$colorTextHeaderMenu: #393939;
+$colorTextButton: #393939;
+$colorTextMobileMenu: #393939;
+$colorTextMobileMenuLang: #C7C7C7;
+$colorTextShopTitle: #C7C7C7;
+$colorTextSimple: #585858;
+$colorTextAddInfo: #FFC499;
+$colorTextHightlight: #FF994F;
+$colorTextLinkEmail: #4E87DC;
+$colorTextLinkFooter: #9F9F9F;
+$colorTextSalesTitle: #393939;
+$colorTextSaleSubitle: #c7c7c7;
+$colorTextSalesCost: #666666;
+$colorTextSubscribe: #666666;
+$colorFooterMessage: #fff;
+
+// gradient
+$grlnSocialIcon: linear-gradient(135deg, #FF5F6D 2.88%, #FFC371 100%);
+
+// offsets
+$offsetMobileCantainer: 16px;
+$offsetPageCantainer: 16px;
+
+// padding
+$padGeneral: 16px;
+
+// padding buttons
+$padBtnHor: 20px;
+$padBtnVer: 10px;
+
+// font-size mobile/decktop
+$fsMH1: 32px;
+$fsMH2: 22px;
+$fsMH3: 19px;
+
+$fsDH1: 56px;
+$fsDH2: 36px;
+$fsDH3: 28px;
+
+$fsTextNotification: 12px;
+$fsMText: 14px;
+$fsDText: 16px;
+$fsButton: 18px;
+$fsHeaderMenu: 18px;
+
+$fsMSubscribeTitle: 28px;
+$fsDSubscribeTitle: 36px;
+$fsSubscribeText: 16px;
+$fsMSubscribeButton: 14px;
+$fsDSubscribeButton: 18px;
+
+$fsCardLabel: 28px;
+$fsCardBigTitle: 36px;
+$fsCardTitle: 22px;
+$fsCardCost: 16px;
+
+$fsCommunityTitle: 28px;
+
+$fsSalesTitle: 28px;
+$fsSaleTitleH1: 36px;
+$fsSaleSubTitle: 15px;
+$fsSaleListText: 13px;
+
+$fsFooterMessage: 18px;
+
+
+// line-height
+$lh: 24px;
+
+// border-radius
+
+// border-radius social-icons
+$brSocialcon: 100px;
+
+// border-radius subscribe
+$brSubscribe: 10px;
+
+// media
+$mobile-width: 479px;
+$tablet-width: 991px;
+$desktop-width: 1223px;
+
+// Mixins
+@mixin md-min-max($width-from, $width-to) {
+  @media screen and (min-width: $width-from) and (max-width: $width-to) {
+    @content;
+  }
+}
+
+@mixin mdx($width) {
+  @media (max-width: $width) {
+    @content;
+  }
+}
+
+@mixin mdn($width) {
+  @media (min-width: $width) {
+    @content;
+  }
+}
+
+@mixin fontFamily($font) {
+  font-family: $font, Arial, sans-serif;
+}
+
+@mixin hideScrollbar {
+  -ms-overflow-style: none;
+  overflow: -moz-scrollbars-none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}

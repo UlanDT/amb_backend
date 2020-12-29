@@ -1,0 +1,103 @@
+.page-community {
+
+  &__title {
+    font-size: $fsCommunityTitle;
+    font-weight: normal;
+    line-height: 150%;
+    text-align: center;
+  }
+
+  &__mailto {
+    color: $colorTextLinkEmail;
+    border-bottom: 2px dashed;
+    text-decoration: none;
+    padding-bottom: 2px;
+
+    &:hover {
+      border-bottom: 0px dashed;
+    }
+  }
+
+  &__social-list {
+    justify-content: center;
+    align-items: center;
+
+    @include mdx($tablet-width) {
+      margin: $padGeneral*2 0;
+    }
+
+    @include mdn($tablet-width + 1) {
+      margin: 40px 0;
+    }
+  }
+
+  &__social-link {
+    width: 40px;
+    height: 40px;
+    background-color: $bgSocialIcon;
+
+    &--active,
+    &:hover {
+      background: $grlnSocialIcon;
+    }
+  }
+
+  &__social-item {
+    &:not(:last-child) {
+      margin-right: 24px;
+    }
+  }
+}
+
+/* end .page-community */
+
+.page-sales {
+  &__container {
+    margin-top: 120px;
+    margin-bottom: 120px;
+  }
+
+  &__title {
+    font-size: $fsSalesTitle;
+    font-weight: normal;
+    line-height: 150%;
+    text-align: center;
+    max-width: 745px;
+    margin: 0 auto;
+    
+    @include mdx($tablet-width) {
+      margin-bottom: 64px;
+    }
+    
+    @include mdn($tablet-width + 1) {
+      margin-bottom: 86px;
+    }
+  }
+
+  // &__items-wrapper {}
+
+  &__item {
+    width: 197px;
+    text-decoration: none;
+
+    &-img {
+      margin-bottom: 20px;
+    }
+
+    &-title {
+      @include fontFamily("Arial");
+      font-weight: normal;
+      color: $colorTextSalesTitle;
+      line-height: $lh;
+      margin-bottom: 8px;
+    }
+
+    &-cost {
+      color: $colorTextSalesCost;
+      font-size: $fsCardCost;
+      line-height: 20px;
+    }
+  }
+}
+
+/* end .page-sales */

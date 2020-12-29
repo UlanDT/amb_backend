@@ -1,0 +1,79 @@
+.page-sale {
+  margin-bottom: 16px;
+
+  @include mdx($tablet-width) {}
+
+  @include mdn($tablet-width + 1) {}
+
+  &__container {
+    max-width: 1000px;
+
+    @include mdx($tablet-width) {
+      margin: 0 auto;
+    }
+
+    @include mdn($tablet-width + 1) {
+      margin: 0 auto;
+    }
+  }
+
+  &__wrapper {}
+
+  &__item {
+    width: 319px;
+    padding: 24px;
+    border-radius: 10px;
+    border: 1px solid #c7c7c7;
+    margin: 0 auto;
+  }
+
+  &__title {
+    font-size: $fsSalesTitle;
+    color: $colorTextSalesTitle;
+    line-height: 38px;
+    margin-bottom: 12px;
+  }
+
+  &__top {
+    margin-bottom: 12px;
+  }
+
+  &__cover {
+    width: 100%;
+    height: 160px;
+    background-color: #FFF6F0;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    margin-bottom: 16px;
+    border-radius: 15px;
+  }
+
+  &__cost {
+    font-size: $fsSaleTitleH1;
+    color: $colorTextSalesTitle;
+    line-height: 120%;
+  }
+
+  &__subtitle {
+    font-size: $fsSaleSubTitle;
+    color: $colorTextSaleSubitle;
+    line-height: $lh;
+  }
+
+  &__list {
+    @include fontFamily("rubik");
+    padding-left: 16px;
+    list-style: url(../../img/list-marker-circle.svg);
+  }
+
+  .page-text {
+    line-height: $lh;
+  }
+
+  &__list-item {
+    font-size: $fsSaleListText;
+    margin-bottom: 12px;
+  }
+
+}

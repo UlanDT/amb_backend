@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 
-from .models import Sox, Discount, Category
+from .models import Sox, Category
 from cart.forms import CartAddProductForm
 
 
@@ -34,3 +34,9 @@ def our_sox(request):
     sox = Sox.objects.all()
     return render(request, 'shop/Our-sox.html', {'sox': sox})
 
+
+def sale(request):
+    return render(request, 'shop/Sale.html')
+
+def gallery(request):
+    return render(request, 'shop/Gallery.html')
