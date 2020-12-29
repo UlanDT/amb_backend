@@ -37,3 +37,6 @@ def our_sox(request):
 
 def sale(request):
     return render(request, 'shop/Sale.html')
+
+def gallery(request):
+    return render(request, 'shop/Gallery.html')
