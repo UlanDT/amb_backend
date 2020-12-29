@@ -1,10 +1,17 @@
 .page-community {
+  @include mdn($tablet-width + 1) {
+    margin-bottom: 40px;
+  }
 
   &__title {
     font-size: $fsCommunityTitle;
     font-weight: normal;
     line-height: 150%;
     text-align: center;
+
+    @include mdn($tablet-width + 1) {
+      margin-bottom: 40px;
+    }
   }
 
   &__mailto {
@@ -21,14 +28,15 @@
   &__social-list {
     justify-content: center;
     align-items: center;
+    margin: 0;
 
     @include mdx($tablet-width) {
       margin: $padGeneral*2 0;
     }
 
-    @include mdn($tablet-width + 1) {
-      margin: 40px 0;
-    }
+    //@include mdn($tablet-width + 1) {
+    //  margin: 40px 0;
+    //}
   }
 
   &__social-link {
@@ -52,9 +60,22 @@
 /* end .page-community */
 
 .page-sales {
+  min-height: 100vh;
+  max-height: 768px;
+
+  display: flex;
+  align-items: center;
+
+  //@include mdx($tablet-width) {}
+
+  //@include mdn($tablet-width + 1) {}
+
   &__container {
-    margin-top: 120px;
-    margin-bottom: 120px;
+    width: 100%;
+
+    //@include mdx($tablet-width) {}
+
+    //@include mdn($tablet-width + 1) {}
   }
 
   &__title {
@@ -64,11 +85,11 @@
     text-align: center;
     max-width: 745px;
     margin: 0 auto;
-    
+
     @include mdx($tablet-width) {
       margin-bottom: 64px;
     }
-    
+
     @include mdn($tablet-width + 1) {
       margin-bottom: 86px;
     }

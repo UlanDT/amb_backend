@@ -1,11 +1,24 @@
 .page-footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
   @include mdx($tablet-width) {
+    min-height: calc(100vh - 90px);
     margin-bottom: $padGeneral*2;
   }
 
   @include mdn($tablet-width + 1) {
-    padding-top: 40px;
-    padding-bottom: 40px;
+    min-height: calc(100vh - 120px);
+    //padding-top: 40px;
+    //padding-bottom: 40px;
+  }
+
+  &__list-wrapper {
+    //display: flex;
+    //justify-content: space-between;
+
+    //flex-basis: 30%;
   }
 
   &__list {
@@ -23,7 +36,9 @@
 
     @include mdn($tablet-width + 1) {
       flex-direction: row;
-      align-items: center;
+      align-items: flex-end;
+      padding: 40px 0;
+      width: 100%;
     }
   }
 
@@ -65,11 +80,37 @@
   font-size: $fsFooterMessage;
   color: $colorFooterMessage;
 
-  z-index: 2;
+  z-index: 4;
 
-  @include mdx($tablet-width) {
-    position: relative;
-  }
+  //@include mdx($tablet-width) {
+  //  position: relative;
+  //}
 
   // @include mdn($tablet-width + 1) {}
+
+  &__container {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__text {
+    flex-grow: 1;
+    text-align: center;
+  }
+
+  &__close {
+    border: none;
+    background-color: transparent;
+    width: 35px;
+    height: 20px;
+    padding: 0 5px;
+    cursor: pointer;
+    text-align: center;
+
+    path {
+      fill: #fff;
+    }
+  }
 }

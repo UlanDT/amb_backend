@@ -20,8 +20,11 @@ $(document).ready(function () {
   const PopupQviewBtn = $(".js-popup-qview-btn");
   const PopupQviewCard = $(".js-popup-zoom-qview-card");
   const NiceSelectSelectBox = $(".js-size-nice-select");
+  const CloseFooterMsg = $(".js-close-footer-msg");
+  const IsQview = $(".js-is-qview");
 
   let swiperActiveIndexGalleryPage = 0;
+  let hideDropLangListTimeout = null;
 
   function checkDOMForSwiper(elm, obj) {
     if (!$(elm).length) {
@@ -60,6 +63,14 @@ $(document).ready(function () {
   const SwiperForShopFilters = checkDOMForSwiper('.js-shop-filters-swiper', {
     slidesPerView: "auto",
     spaceBetween: 16,
+    breakpoints: {
+      992: {
+        centerInsufficientSlides: false,
+      },
+      370: {
+        centerInsufficientSlides: true,
+      },
+    }
   });
 
   const SwiperSaleList = checkDOMForSwiper('.js-salelist-swiper', {
@@ -95,54 +106,10 @@ $(document).ready(function () {
     }
   });
 
-  // const ShopQviewCardSwiper = checkDOMForSwiper(".js-shop-qview-card-swiper", {
-  //   slidesPerView: 1,
-  //   spaceBetween: 50,
-  //   watchOverflow: true,
-  //   navigation: {
-  //     nextEl: '.swiper-button-next',
-  //     prevEl: '.swiper-button-prev',
-  //   },
-  // });
-
   const SwiperZoomCardThumbs = checkDOMForSwiper(".js-zoom-card-thumbs-swiper", {
-    // nested: true,
     spaceBetween: 16,
     slidesPerView: 4,
-    // watchSlidesVisibility: true,
-    // watchSlidesProgress: true,
-    // observer: true,
-    // observeParents: true,
   });
-
-  // const SwiperZoomCard = checkDOMForSwiper(".js-zoom-card-swiper", {
-  //   // nested: true,
-  //   spaceBetween: 16,
-  //   zoom: true,
-  //   observer: true,
-  //   observeParents: true,
-  //   thumbs: {
-  //     swiper: SwiperZoomCardThumbs,
-  //   },
-  // });
-
-  /*
-   $('.slider-for').slick({
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      arrows: false,
-      fade: true,
-      asNavFor: '.slider-nav'
-    });
-    $('.slider-nav').slick({
-      slidesToShow: 3,
-      slidesToScroll: 1,
-      asNavFor: '.slider-for',
-      dots: true,
-      centerMode: true,
-      focusOnSelect: true
-    });
-  * */
 
   const SwiperZoomCard = new Swiper('.js-zoom-card-swiper', {
     thumbs: {
@@ -203,13 +170,15 @@ $(document).ready(function () {
     });
   };
 
-  ShopProducts.each(function (_, card) {
-    $(card).hover(function (evt) {
-      $(card).find(".page-shop__card").addClass("page-shop__card--hover");
-    }, function (evt) {
-      $(card).find(".page-shop__card").removeClass("page-shop__card--hover");
+  if (IsQview.data("is-qview")) {
+    ShopProducts.each(function (_, card) {
+      $(card).hover(function (evt) {
+        $(card).find(".page-shop__card").addClass("page-shop__card--hover");
+      }, function (evt) {
+        $(card).find(".page-shop__card").removeClass("page-shop__card--hover");
+      });
     });
-  });
+  }
 
   ShopFilters.on("click", function (evt) {
     let elm = $(evt.currentTarget);
@@ -273,13 +242,13 @@ $(document).ready(function () {
           PopupQviewCard.show();
 
           SlickShopQviewCard.slick({
+            slidesToShow: 1,
+            slidesToScroll: 1,
             dots: false,
             infinite: false,
             prevArrow: "<div class=\"swiper-button-prev page-shop__qview-arrow-prev\"></div>",
             nextArrow: "<div class=\"swiper-button-next page-shop__qview-arrow-next\"></div>",
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            draggable: false
+            swipe: false,
           });
 
           SlickZoomCard.slick({
@@ -288,26 +257,23 @@ $(document).ready(function () {
             adaptiveHeight: true,
             arrows: false,
             centerMode: true,
-            centerPadding: "50px",
+            centerPadding: "0",
             infinite: false,
-            asNavFor: '.js-zoom-card-thumbs-slick'
+            asNavFor: '.js-zoom-card-thumbs-slick',
+            swipe: false,
           });
 
           SlickZoomCardThumbs.slick({
             slidesToShow: 4,
-            infinite: false,
             slidesToScroll: 1,
+            infinite: false,
             asNavFor: '.js-zoom-card-slick',
             arrows: false,
             dots: false,
-            focusOnSelect: true
+            focusOnSelect: true,
           });
 
-          $('.js-card-zoom-img')
-              .wrap('<span style="display:inline-block"></span>')
-              .css('display', 'block')
-              .parent()
-              .zoom();
+          $('.js-card-zoom-img').zoom();
         },
         close: function (e) {
           PopupQviewCard.hide();
@@ -329,7 +295,7 @@ $(document).ready(function () {
       centerPadding: "0",
       infinite: false,
       asNavFor: '.js-zoom-card-thumbs-slick',
-      draggable: false,
+      swipe: false,
     });
 
     SlickZoomCardThumbs.slick({
@@ -350,22 +316,33 @@ $(document).ready(function () {
   }
 
   /* Nice Select plugin */
-  NiceSelectSelectBox.niceSelect();
+  if (NiceSelectSelectBox.length) {
+    NiceSelectSelectBox.niceSelect();
+  }
 
   SelectboxLangList.on("click", function (e) {
     if (e.target.tagName === "A") {
       SelectboxValueLangList.text(e.target.textContent);
     }
 
-    setTimeout(function () {
-      SelectboxDropLangList.hide();
-      $(".lang-selectbox").removeClass("lang-selectbox--up");
-    }, 1500);
-
     $(".lang-selectbox").toggleClass("lang-selectbox--up");
 
     SelectboxDropLangList.toggle();
   });
 
+  SelectboxLangList.on("mouseleave", function (e) {
+    hideDropLangListTimeout = setTimeout(function () {
+      SelectboxDropLangList.hide();
+      $(".lang-selectbox").removeClass("lang-selectbox--up");
+      clearTimeout(hideDropLangListTimeout);
+    }, 2000);
+  });
 
+  SelectboxLangList.on("mouseenter", function (e) {
+    clearTimeout(hideDropLangListTimeout);
+  });
+
+  CloseFooterMsg.on("click", function (e) {
+    CloseFooterMsg.parents('.footer-message').toggle();
+  });
 });

@@ -30,7 +30,7 @@
 </head>
 <body class="page-body">
 <noscript>Ваш браузер не поддерживает JavaScript.</noscript>
-<header class="page-header js-header-menu">
+<header class="page-header page-header--bg-white">
   <div class="page-header__container page-container">
     <a class="page-header__logo" href="{% url 'home' %}">
       <img class="page-header__logo-img" src="{% static 'img/logo-ambsox.svg' %}" alt="Ambsox"/>
@@ -60,7 +60,7 @@
               <a class="menu-list__link" href="#">Gallery</a>
             </li>
             <li class="menu-list__item">
-              <a class="menu-list__link" href="{% url 'sale' %}">Sale&nbsp;%</a>
+              <a class="menu-list__link" href="./Sale.html">Sale&nbsp;%</a>
             </li>
           </ul>
           <!-- end .nav-list -->
@@ -72,16 +72,14 @@
               <a class="lang-list__link js-value-langlist">EN</a>
             </div>
             <div class="lang-list__items js-drop-langlist" style="display: none">
-              <a class="lang-list__link-item" href="#">RU</a>
-              <a class="lang-list__link-item" href="#"
-              >EN</a
-              >
+              <a class="lang-list__link-item">RU</a>
+              <a class="lang-list__link-item">EN</a>
             </div>
             <div
                 class="page-header__hide-mobmenu hide-mobmenu js-hide-mobmenu"
             >
               <button class="hide-mobmenu__btn" type="button">
-                <img src="./img/icon-close.svg" alt="X"/>
+                <img src="{% static 'img/icon-close.svg' %}" alt="X"/>
               </button>
             </div>
           </div>
@@ -226,27 +224,88 @@
 {% block content %}
 {% endblock content %}
 <!-- end .page-header -->
-<!-- <div class="visible-hidden"></div> -->
 <!-- end .page-main -->
 
 <footer class="page-footer">
-  <ul class="page-footer__list">
-    <li class="page-footer__item">
-      <a class="page-footer__link" href="#">Blog</a>
-    </li>
-    <li class="page-footer__item">
-      <a class="page-footer__link" href="#">Contact</a>
-    </li>
-    <li class="page-footer__item">
-      <a class="page-footer__link" href="#">Term &amp; Conditions</a>
-    </li>
-    <li class="page-footer__item">
-      <a class="page-footer__link" href="#">Privacy Policy</a>
-    </li>
-    <li class="page-footer__item">
-      <a class="page-footer__link" href="#">Cookies Policy</a>
-    </li>
-  </ul>
+  <div class="page-community">
+    <div class="page-container">
+      <h2 class="page-community__title">
+        For any questions / pour toutes les questions
+        <a class="page-community__mailto" href="mailto:info@ambsox.com"
+        >info@ambsox.com</a
+        >
+      </h2>
+      <ul class="page-community__social-list social-list">
+        <li class="page-community__social-item social-list__item">
+          <a
+              class="page-community__social-link page-community__social-link--active social-list__link"
+              href="#"
+          ><img src="{% static 'img/icon-inst.svg' %}" alt="INST"
+          /></a>
+        </li>
+        <li class="page-community__social-item social-list__item">
+          <a class="page-community__social-link social-list__link" href="#"
+          ><img src="{% static 'img/icon-email.svg' %}" alt="EMAIL"
+          /></a>
+        </li>
+        <li class="page-community__social-item social-list__item">
+          <a class="page-community__social-link social-list__link" href="#"
+          ><img src="{% static 'img/icon-fb.svg' %}" alt="Fb"
+          /></a>
+        </li>
+      </ul>
+      <!-- end .social-list -->
+    </div>
+  </div>
+  <!-- end .page-community .page-main__content -->
+
+  <div class="page-subscribe page-main__content">
+    <div class="page-container">
+      <div class="page-subscribe__container">
+        <h2 class="page-subscribe__title page-text-h2">Subscribe</h2>
+        <p class="page-subscribe__text">
+          Sign up with your email address to receive news and updates
+        </p>
+
+        <form class="page-subscribe__form" action="">
+          <label class="page-subscribe__input-wrapper">
+            <input
+                class="page-subscribe__input"
+                type="text"
+                placeholder="domain@email.com"
+            />
+          </label>
+          <button
+              class="page-subscribe__btn btn btn-subscribe"
+              type="submit"
+          >
+            Subscribe
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- end .page-subscribe .page-main__content -->
+  <div class="page-footer__list-wrapper">
+    <ul class="page-footer__list">
+      <li class="page-footer__item">
+        <a class="page-footer__link" href="#">Blog</a>
+      </li>
+      <li class="page-footer__item">
+        <a class="page-footer__link" href="#">Contact</a>
+      </li>
+      <li class="page-footer__item">
+        <a class="page-footer__link" href="#">Term &amp; Conditions</a>
+      </li>
+      <li class="page-footer__item">
+        <a class="page-footer__link" href="#">Privacy Policy</a>
+      </li>
+      <li class="page-footer__item">
+        <a class="page-footer__link" href="#">Cookies Policy</a>
+      </li>
+    </ul>
+  </div>
+    <!-- end .page-footer__list -->
 </footer>
 <!-- end .page-footer -->
 

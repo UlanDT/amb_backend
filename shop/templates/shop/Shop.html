@@ -24,7 +24,7 @@
           <div class="page-shop__products-title">
             <p>Swiss design</p>
           </div>
-          <div class="page-shop__filters-list swiper--testmob swiper-container js-shop-filters-swiper">
+          <div class="page-shop__filters-list swiper--mob-show swiper-container js-shop-filters-swiper">
             <div class="page-shop__filters-wrapper swiper-wrapper">
               <div class="page-shop__filter-item swiper-slide">
                 <p class="page-shop__filter-text page-shop__filter-text--active js-shop-filter"
@@ -33,12 +33,12 @@
               {% for category in categories %}
                 <div class="page-shop__filter-item swiper-slide">
                   <p class="page-shop__filter-text js-shop-filter"
-                     data-filterkey="ballet">{{ category.name }}</p>
+                     data-filterkey="{{ category.slug }}">{{ category.name }}</p>
                 </div>
               {% endfor %}
             </div>
           </div>
-          <div class="page-shop__filters swiper--testdesk">
+          <div class="page-shop__filters swiper--desk-show">
             <div class="page-shop__filters-wrapper">
               <div class="page-shop__filter-item">
                 <p class="page-shop__filter-text page-shop__filter-text--active js-shop-filter"
@@ -54,7 +54,7 @@
           </div>
         </div>
 
-        <div class="page-shop__products">
+        <div class="page-shop__products js-is-qview" data-is-qview="true">
           {% for item in sox %}
             <div class="page-shop__product js-shop-product" data-filterid="{{ item.category.slug }}">
               <div class="page-shop__product-card">
@@ -77,20 +77,21 @@
                   <div class="page-shop__qview-container">
                     <div class="page-shop__qview-gallery">
                       <div class="js-zoom-card-slick">
-                        <div class="">
-                          <img class="page-shop__card-img js-card-zoom-img" src="{{ item.image.url }}" alt=""/>
+                        <div class="page-shop__card-img-box js-card-zoom-img" data-src="https://unsplash.it/870/970">
+                          <img class="page-shop__card-img" src="https://unsplash.it/1100/970" alt=""/>
+                          {#<img class="page-shop__card-img" src="{{ item.image.url }}" alt=""/>#}
                         </div>
                         <!-- end  -->
-                        <div class="">
-                          <img class="page-shop__card-img js-card-zoom-img" src="{{ item.image.url }}" alt=""/>
+                        <div class="js-card-zoom-img">
+                          <img class="page-shop__card-img" src="{{ item.image.url }}" alt=""/>
                         </div>
                         <!-- end  -->
-                        <div class="">
-                          <img class="page-shop__card-img js-card-zoom-img" src="{{ item.image.url }}" alt=""/>
+                        <div class="js-card-zoom-img">
+                          <img class="page-shop__card-img" src="{{ item.image.url }}" alt=""/>
                         </div>
                         <!-- end -->
-                        <div class="">
-                          <img class="page-shop__card-img js-card-zoom-img" src="{{ item.image.url }}" alt=""/>
+                        <div class="js-card-zoom-img">
+                          <img class="page-shop__card-img" src="{{ item.image.url }}" alt=""/>
                         </div>
                         <!-- end -->
                       </div>
@@ -99,7 +100,8 @@
                       <!-- Если 1 фотография, то скрыть нижний блок .page-shop__qview-card-thumbs -->
                       <div class="page-shop__qview-card-thumbs js-zoom-card-thumbs-slick">
                         <div class="page-shop__qview-card-thumb">
-                          <img class="page-shop__qview-card-img" src="{{ item.image.url }}" alt=""/>
+                          <img class="page-shop__qview-card-img" src="https://unsplash.it/870/870" alt=""/>
+                          {#<img class="page-shop__qview-card-img" src="{{ item.image.url }}" alt=""/>#}
                         </div>
                         <!-- end of .swiper-slide -->
                         <div class="page-shop__qview-card-thumb">
@@ -145,11 +147,21 @@
   <!-- end .page-main -->
 
   <div class="footer-message">
-    <div class="page-container">
-      <p class="page-shop__qview-card-thumb">
+    <div class="footer-message__container page-container">
+      <p class="footer-message__text">
         Delivery in <i class="page-text--highlight">SWITZERLAND</i> is free,
         fast and secure.
       </p>
+      <button class="footer-message__close js-close-footer-msg">
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 25 25">
+          <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M1.70711 0.292893C1.31658 -0.097631 0.683418 -0.097631 0.292893 0.292893C-0.097631 0.683417 -0.097631 1.31658 0.292893 1.70711L9.58736 11.0016L0.292893 20.296C-0.0976312 20.6866 -0.097631 21.3197 0.292893 21.7102C0.683418 22.1008 1.31658 22.1008 1.70711 21.7102L11.0016 12.4158L20.296 21.7102C20.6866 22.1008 21.3197 22.1008 21.7102 21.7102C22.1008 21.3197 22.1008 20.6866 21.7102 20.296L12.4158 11.0016L21.7102 1.70711C22.1008 1.31658 22.1008 0.683418 21.7102 0.292894C21.3197 -0.0976301 20.6866 -0.097631 20.296 0.292894L11.0016 9.58736L1.70711 0.292893Z"/>
+        </svg>
+      </button>
     </div>
   </div>
 

@@ -52,6 +52,9 @@
   &__filters {
     list-style: none;
     font-size: 16px;
+    flex-basis: 10%;
+    min-width: 150px;
+
 
     @include mdx($tablet-width) {
       margin-bottom: 20px;
@@ -78,55 +81,41 @@
   }
 
   &__products {
-    display: flex;
+    flex-basis: 85%;
 
     @include mdx($tablet-width) {
-      flex-flow: row wrap;
-      justify-content: center;
-
-      height: 65vh;
       overflow-x: scroll;
 
       @include hideScrollbar;
     }
 
     @include mdn($tablet-width + 1) {
-      flex-flow: row wrap;
-      flex-basis: 85%;
-      justify-content: space-between;
+      margin-right: -10px;
     }
 
-    @include mdx($mobile-width) {
-      height: 60vh;
-      justify-content: center;
-    }
-
-    /* @include md-min-max($mobile-width, $tablet-width + 1) {
-      justify-content: flex-start;
-    } */
+    //@include md-min-max($mobile-width, $tablet-width + 1) {}
   }
 
   &__product {
+    display: inline-block;
+    min-width: 125px;
+    max-width: 250px;
+
     @include mdx($tablet-width) {
-      width: 164px;
+      width: 47%;
       margin-right: 10px;
       margin-bottom: 10px;
     }
 
-    @include mdn($tablet-width + 1) {
-      //margin-right: 20px;
-      margin-bottom: 20px;
+    @include mdx($mobile-width) {
+      width: 46%;
+      margin-right: 5px;
+      margin-bottom: 5px;
     }
 
-    @include mdx($mobile-width) {
-      width: 48%;
-      min-width: 120px;
-      max-width: 164px;
-
-      &:nth-child(even) {
-        margin-right: 0;
-        margin-bottom: 0;
-      }
+    @include mdn($tablet-width + 1) {
+      margin-right: 10px;
+      margin-bottom: 20px;
     }
   }
 
@@ -185,9 +174,9 @@
       flex-flow: row nowrap;
     }
 
-    @include mdx($mobile-width) {
-      flex-flow: column wrap;
-    }
+    //@include mdx($mobile-width) {
+    //  flex-flow: column wrap;
+    //}
   }
 
   &__gallery,
@@ -205,6 +194,10 @@
   &__qview-details,
   &__qview-gallery {
     padding: 16px;
+
+    @include mdx($mobile-width-h) {
+      flex-basis: 100%;
+    }
   }
 
   &__details,
@@ -271,9 +264,12 @@
     margin-bottom: 12px;
   }
 
+  //&__page-shop__card-img {}
+
   &__card-img {
-    width: 600px;
+    width: 100%;
   }
+
 
   &__qview-card-thumbs {
     margin-top: 16px;
@@ -369,8 +365,8 @@
 
 /* end .page-shop */
 
-.swiper--test {
-  &mob {
+.swiper {
+  &--mob-show {
     @include mdx($tablet-width) {
       display: block;
     }
@@ -380,7 +376,7 @@
     }
   }
 
-  &desk {
+  &--desk-show {
     @include mdx($tablet-width) {
       display: none;
     }
