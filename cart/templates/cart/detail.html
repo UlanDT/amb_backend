@@ -19,16 +19,16 @@
               <div class="page-cart__table-cell page-cart__table-cell--image">
                 <p class="page-cart__thead-text">Image</p>
               </div>
-              <div class="page-cart__table-cell">
+              <div class="page-cart__table-cell page-cart__table-cell--product">
                 <p class="page-cart__thead-text">Product</p>
               </div>
               <div class="page-cart__table-cell">
                 <p class="page-cart__thead-text">Quantity</p>
               </div>
-              <div class="page-cart__table-cell">
+              <div class="page-cart__table-cell page-cart__table-cell--uprice">
                 <p class="page-cart__thead-text">Unit price</p>
               </div>
-              <div class="page-cart__table-cell">
+              <div class="page-cart__table-cell page-cart__table-cell--price">
                 <p class="page-cart__thead-text">Price</p>
               </div>
             </div>
@@ -53,7 +53,7 @@
                         <img src="{{ product.image.url }}">
                       </a>
                     </div>
-                    <div class="page-cart__tbody-cell page-cart__table-cell">
+                    <div class="page-cart__tbody-cell page-cart__table-cell page-cart__table-cell--product">
                       <p>{{ product.name }}</p>
                     </div>
                     <div class="page-cart__tbody-cell page-cart__tbody-quantity page-cart__table-cell">
@@ -61,12 +61,14 @@
                         <!-- <input type="number" min="0" value="1"> -->
                         {{ item.update_quantity_form.quantity }}
                         {{ item.update_quantity_form.update }}
-                        <input class="btn btn-secondary" type="submit" value="Update">
+                        <input class="page-cart__btn-update btn btn-secondary" type="submit" value="Update">
                         {% csrf_token %}
                       </form>
                     </div>
-                    <div class="num page-cart__tbody-cell page-cart__table-cell">${{ item.price }}</div>
-                    <div class="num page-cart__tbody-cell page-cart__table-cell">${{ item.total_price }}</div>
+                    <div class="num page-cart__tbody-cell page-cart__table-cell page-cart__table-cell--uprice">
+                      ${{ item.price }}</div>
+                    <div class="num page-cart__tbody-cell page-cart__table-cell page-cart__table-cell--price">
+                      ${{ item.total_price }}</div>
                   </div>
                 {% endwith %}
               {% endfor %}
@@ -75,32 +77,36 @@
           <!-- end table-wrapper -->
         </div>
         <!-- end table-wrapper-container -->
-<<<<<<< HEAD
-=======
-          {% if cart.coupon %}
+      </div>
+      <!-- end .page-cart__table -->
+
+      <div class="page-cart__coupon">
+        <h3 class="page-cart__coupon-title page-text">Apply a coupon</h3>
+        <form class="page-cart__coupon-form" action="{% url 'coupons:apply' %}" method="post">
+          {{ coupon_apply_form }}
+          <input class="page-cart__btn-update btn btn-secondary" type="submit" value="Apply">
+          {% csrf_token %}
+        </form>
+
+        {% if cart.coupon %}
           <p>Subtotal</p>
           <p>{{ cart.get_total_price|floatformat:"2" }}</p>
 
           <p>{{ cart.coupon.code }} coupon ({{ cart.coupon.discount }}% off)</p>
           <p>-$ {{ cart.get_discount|floatformat:"2" }}</p>
-          {% endif %}
-          <p>${{ cart.get_total_price_after_discount|floatformat:"2" }}</p>
-
-          <p>Apply a coupon:</p>
-          <form action="{% url 'coupons:apply' %}" method="post">
-              {{ coupon_apply_form }}
-              <input type="submit" value="Apply">
-              {% csrf_token %}
-          </form>
->>>>>>> 4d194a1ddf46ba0f4cf56bd25ae4f74b61d3cf96
-        <div class="page-cart__total">
-          <p class="page-cart__total-text page-text">Total:</p>
-          <p class="page-cart__total-num page-text">
-            <b>${{ cart.get_total_price }}</b>
-          </p>
-        </div>
+        {% endif %}
+        <p>${{ cart.get_total_price_after_discount|floatformat:"2" }}</p>
       </div>
-      <!-- end .page-cart__table -->
+      <!-- end .page-cart__coupon -->
+
+
+      <div class="page-cart__total">
+        <p class="page-cart__total-text page-text">Total:</p>
+        <p class="page-cart__total-num page-text">
+          <b>${{ cart.get_total_price }}</b>
+        </p>
+      </div>
+      <!-- end .page-cart__total -->
 
       <!--  Если нет товара, то вывести верхнюю надпись с кнопкой "Continue shopping" -->
       <!-- <div class="page-cart__continue">

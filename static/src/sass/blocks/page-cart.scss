@@ -9,19 +9,26 @@
   }
 
   &__container {
-    //@include mdx($tablet-width) {}
+    max-width: 1200px;
+
+    @include mdx($tablet-width) {
+      min-height: calc(100vh - 90px);
+    }
 
     @include mdn($tablet-width + 1) {
-      margin-bottom: 40px;
+      min-height: calc(100vh - 120px);
+      display: flex;
+      flex-flow: column wrap;
+      justify-content: space-between;
+
+      margin: 0 auto 40px;
     }
   }
 
-  &__table {
-    margin-bottom: 40px;
-  }
+  //&__table {  }
 
   &__table-wrapper {
-    margin-bottom: 20px;
+    margin-bottom: $padGeneral;
     overflow-x: auto;
   }
 
@@ -49,18 +56,8 @@
   }
 
   &__tbody-quantity {
-    display: flex;
 
-    input[type=submit] {
-      @include mdx($tablet-width) {
-        font-size: $fsButtonM;
-        padding: 0.7em 1.4em;
-      }
-      @include mdn($tablet-width + 1) {
-        font-size: $fsButton;
-        padding: 0.62em 1.25em;
-      }
-    }
+    min-width: calc(100% / 5);
 
     @include mdx($tablet-width) {
       flex-flow: column wrap;
@@ -75,31 +72,61 @@
     }
 
     form {
+      display: flex;
+
       @include mdx($tablet-width) {
-        text-align: center;
+        flex-flow: column nowrap;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      @include mdn($tablet-width + 1) {
+        flex-flow: row wrap;
+        justify-content: space-between;
+        align-items: center;
       }
     }
 
     //input[type=submit] {}
 
     input[type=number] {
-      height: 40px;
-      min-width: 40px;
-      padding: 2px;
-      border: 1px solid $bgButton;
+      font-size: inherit;
+      min-width: 50px;
+      padding: $padBtnVer 2px;
+      border: 1px solid rgba($bgButton, .8);
+      border-radius: 44px;
+      text-indent: 16px;
+      line-height: 24px;
 
       @include mdx($tablet-width) {
-        width: 80%;
-        margin-bottom: 12px;
+        //flex-basis: 45%;
+        margin-bottom: 8px;
       }
 
       @include mdn($tablet-width + 1) {
-        width: 30%;
+        //flex-grow: 1;
+        flex-basis: 30%;
       }
+
+      //@include mdx($mobile-width) {}
+    }
+  }
+
+  &__btn-update {
+    font-size: inherit;
+
+    @include mdx($tablet-width) {
+      padding: 0.62em 1.25em;
+    }
+
+    @include mdn($tablet-width + 1) {
+      margin-left: 5px;
+      padding: 0.7em 1.4em;
     }
   }
 
   &__table-cell {
+    //min-width: calc(100% / 5);
     flex-basis: calc(100% / 5);
     margin-right: 6px;
 
@@ -130,6 +157,12 @@
         max-width: 180px;
       }
     }
+
+    &--product,
+    &--uprice,
+    &--price {
+      flex-basis: 10%;
+    }
   }
 
   &__tbody-cell {
@@ -141,7 +174,34 @@
     color: $colorTextCartHeader;
   }
 
+  &__coupon {
+    margin: $padGeneral 0;
+    padding: $padGeneral;
+    border-radius: 10px;
+    background-color: $bgSubscribe;
+  }
+
+  &__coupon-form,
+  &__coupon-title {
+    margin-bottom: $padGeneral;
+  }
+
+  &__coupon-form {
+    input[type=text] {
+      font-size: inherit;
+      min-width: 50px;
+      padding: $padBtnVer 2px;
+      border: 1px solid $bgButton;
+      border-radius: 44px;
+      text-indent: 8px;
+
+      margin-left: 8px;
+    }
+  }
+
   &__total {
+    padding: $padGeneral 0;
+
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
@@ -150,7 +210,13 @@
 
   &__total-num,
   &__total-text {
-    font-size: $fsCardCost;
+    @include mdx($tablet-width) {
+      font-size: $fsCartTotalCostM;
+    }
+
+    @include mdn($tablet-width + 1) {
+      font-size: $fsCartTotalCostD;
+    }
   }
 
   &__total-text {
@@ -158,7 +224,6 @@
   }
 
   &__action-btn {
-    margin-bottom: 40px;
     display: inline-block;
   }
 
@@ -166,6 +231,7 @@
 
   &__checkout {
     text-align: right;
+    margin: $padGeneral 0;
   }
 
   &__title {
@@ -178,48 +244,3 @@
 }
 
 /* end .page-cart */
-
-/*
-<table class="cart">
-        <thead>
-        <tr>
-          <th>Image</th>
-          <th>Product</th>
-          <th>Quantity</th>
-          <th>Remove</th>
-          <th>Unit price</th>
-          <th>Price</th>
-        </tr>
-        </thead>
-        <tbody>
-        {% for item in cart %}
-          {% with product=item.product %}
-            <tr>
-              <td>
-                <a href="{{ product.get_absolute_url }}">
-                  <img src="{{ product.image.url }}">
-                </a>
-              </td>
-              <td>{{ product.name }}</td>
-              <td>
-                <form action="{% url 'cart:cart_add' product.id %}" method="post">
-                  {{ item.update_quantity_form.quantity }}
-                  {{ item.update_quantity_form.update }}
-                  <input type="submit" value="Update">
-                  {% csrf_token %}
-                </form>
-              </td>
-              <td><a href="{% url 'cart:cart_remove' product.id %}">Remove</a></td>
-              <td class="num">${{ item.price }}</td>
-              <td class="num">${{ item.total_price }}</td>
-            </tr>
-          {% endwith %}
-        {% endfor %}
-        <tr class="total">
-          <td>Total</td>
-          <td colspan="4"></td>
-          <td class="num">${{ cart.get_total_price }}</td>
-        </tr>
-        </tbody>
-      </table>
-*/

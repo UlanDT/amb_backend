@@ -75,12 +75,13 @@ $(document).ready(function () {
 
   const SwiperSaleList = checkDOMForSwiper('.js-salelist-swiper', {
     slidesPerView: "auto",
-    spaceBetween: 25,
-    autoHeight: true,
     centerInsufficientSlides: true,
     breakpoints: {
       992: {
         spaceBetween: 30,
+      },
+      370: {
+        spaceBetween: 20,
       }
     }
   });
