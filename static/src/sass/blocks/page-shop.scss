@@ -253,15 +253,23 @@
     color: $colorTextSalesTitle;
   }
 
-  //&__card-add {}
+  &__card-add {
+    margin: $padGeneral 0;
+  }
 
   //&__card-excerpt {}
 
   &__card-title,
   &__card-cost,
   &__card-excerpt,
-  &__card-btn-container {
+  &__card-form-wrapper {
     margin-bottom: 12px;
+  }
+
+  &__card-form {
+    input[type=number] {
+      @extend .input-item;
+    }
   }
 
   //&__page-shop__card-img {}

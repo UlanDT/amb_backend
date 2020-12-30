@@ -246,7 +246,7 @@ blockquote {
   .btn-secondary {
     background-color: #fff; }
 
-.input-item, .page-order__form input[type=text],
+.input-item, .page-shop__card-form input[type=number], .page-order__form input[type=text],
 .page-order__form input[type=email],
 .page-order__form input[type=number] {
   padding: 10px 20px;
@@ -975,7 +975,10 @@ blockquote {
 .page-shop__card-full-link {
   color: #393939; }
 
-.page-shop__card-title, .page-shop__card-cost, .page-shop__card-excerpt, .page-shop__card-btn-container {
+.page-shop__card-add {
+  margin: 16px 0; }
+
+.page-shop__card-title, .page-shop__card-cost, .page-shop__card-excerpt, .page-shop__card-form-wrapper {
   margin-bottom: 12px; }
 
 .page-shop__card-img {

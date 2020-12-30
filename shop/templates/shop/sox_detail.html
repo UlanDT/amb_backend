@@ -36,10 +36,11 @@
         <div class="page-shop__qview-details page-shop__details">
           <h1 class="page-shop__card-title">{{ sox.title }}</h1>
           <h2 class="page-shop__card-cost">CHF{{ sox.price }}</h2>
-          <div class="page-shop__card-btn-container">
-            <form action="{% url 'cart:cart_add' sox.id %}" method="post">
+          <div class="page-shop__card-form-wrapper">
+            <form class="page-shop__card-form" action="{% url 'cart:cart_add' sox.id %}" method="post">
               {{ cart_product_form }}
               {% csrf_token %}
+              <br/>
               <input class="page-shop__card-add btn btn-primary" type="submit" value="Add to cart">
               {% comment %}
                  <select class="js-size-nice-select" name="size" id="id_s_size">
