@@ -81,7 +81,7 @@
       <!-- end .page-cart__table -->
 
       <div class="page-cart__coupon">
-        <h3 class="page-cart__coupon-title page-text">Apply a coupon</h3>
+        <h3 class="page-cart__coupon-title page-text page-text-h3">Apply a coupon</h3>
         <form class="page-cart__coupon-form" action="{% url 'coupons:apply' %}" method="post">
           {{ coupon_apply_form }}
           <input class="page-cart__btn-update btn btn-secondary" type="submit" value="Apply">
@@ -98,7 +98,6 @@
         <p>${{ cart.get_total_price_after_discount|floatformat:"2" }}</p>
       </div>
       <!-- end .page-cart__coupon -->
-
 
       <div class="page-cart__total">
         <p class="page-cart__total-text page-text">Total:</p>

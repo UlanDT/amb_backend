@@ -1,9 +1,9 @@
 .page-sale {
   margin-bottom: 16px;
 
-  @include mdx($tablet-width) {}
+  //@include mdx($tablet-width) {}
 
-  @include mdn($tablet-width + 1) {}
+  //@include mdn($tablet-width + 1) {}
 
   &__container {
     max-width: 1000px;

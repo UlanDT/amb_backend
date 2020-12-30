@@ -3,22 +3,34 @@
 {% block title %} Checkout {% endblock title %}
 
 {% block content %}
-    <h1>Checkout</h1>
-    <div class="order-info">
-        <h3>Your order</h3>
-        <ul>
-            {% for item in cart %}
-                <li>
-                    {{ item.quantity }}x {{ item.product.name }}
-                    <span>${{ item.total_price }}</span>
+  <div class="page-main page-main--top">
+    <div class="page-container">
+      <div class="page-order page-main__content">
+        <div class="page-order__container">
+          <h1 class="page-order__title page-text-h1">Checkout</h1>
+          <h3 class="page-text-h3">Your order</h3>
+          <div class="page-order__info">
+            <ul class="page-order__list">
+              {% for item in cart %}
+                <li class="page-order__litem">
+                  {{ item.quantity }}x {{ item.product.name }}
+                  <span>${{ item.total_price }}</span>
                 </li>
-            {% endfor %}
-        </ul>
-        <p>Total: ${{ cart.get_total_price }}</p>
+              {% endfor %}
+            </ul>
+            <p class="page-order__total-row">Total: <b>${{ cart.get_total_price }}</b></p>
+          </div>
+          <div class="page-order__form-wrapper">
+            <form class="page-order__form" action="" method="post" class="order-form">
+              {{ form.as_p }}
+              <p class="page-order__form-row page-order__form-row--aright">
+                <input class="page-order__btn-submit btn btn-primary" type="submit" value="Place order">
+              </p>
+              {% csrf_token %}
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
-    <form action="" method="post" class="order-form">
-        {{ form.as_p }}
-        <p><input type="submit" value="Place order"></p>
-        {% csrf_token %}
-    </form>
+  </div>
 {% endblock content %}
