@@ -22,6 +22,7 @@ $(document).ready(function () {
   const NiceSelectSelectBox = $(".js-size-nice-select");
   const CloseFooterMsg = $(".js-close-footer-msg");
   const IsQview = $(".js-is-qview");
+  const AccordionCard = $(".js-card-accordion");
 
   let swiperActiveIndexGalleryPage = 0;
   let hideDropLangListTimeout = null;
@@ -290,10 +291,10 @@ $(document).ready(function () {
     SlickZoomCard.slick({
       slidesToShow: 1,
       slidesToScroll: 1,
-      adaptiveHeight: true,
+      // adaptiveHeight: true,
       arrows: false,
-      centerMode: true,
-      centerPadding: "0",
+      // centerMode: true,
+      // centerPadding: "1px",
       infinite: false,
       asNavFor: '.js-zoom-card-thumbs-slick',
       swipe: false,
@@ -309,11 +310,7 @@ $(document).ready(function () {
       focusOnSelect: true,
     });
 
-    $('.js-card-zoom-img')
-        .wrap('<span style="display:inline-block"></span>')
-        .css('display', 'block')
-        .parent()
-        .zoom();
+    $('.js-card-zoom-img').zoom();
   }
 
   /* Nice Select plugin */
@@ -345,5 +342,10 @@ $(document).ready(function () {
 
   CloseFooterMsg.on("click", function (e) {
     CloseFooterMsg.parents('.footer-message').toggle();
+  });
+
+  AccordionCard.accordion({
+    collapsible: true,
+    heightStyle: 'content'
   });
 });

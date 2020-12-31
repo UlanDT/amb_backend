@@ -194,6 +194,37 @@ blockquote {
   .hide-mobmenu {
     display: none; } }
 
+.accordion .ui-accordion-header {
+  position: relative; }
+
+.ui-accordion-header-active + .accordion__row {
+  background-color: rgba(245, 245, 245, 0.79); }
+
+.accordion .ui-accordion-header-icon {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  display: inline-block;
+  width: 20px;
+  height: 15px;
+  transform: translateY(-50%);
+  background: url("../img/icon-up-down.png") no-repeat center top;
+  background-size: cover; }
+
+.accordion .ui-accordion-header-active .ui-accordion-header-icon {
+  background-position: center bottom; }
+
+.accordion__title {
+  font-weight: normal;
+  font-size: 22px;
+  margin: 8px 0;
+  padding-bottom: 8px;
+  cursor: pointer; }
+
+.accordion__row {
+  padding: 8px; }
+
 .hyphen-list {
   list-style-type: none; }
   .hyphen-list li {
@@ -266,6 +297,22 @@ blockquote {
 
 .input-numb {
   text-indent: 10px; }
+
+.selectbox {
+  font-size: inherit;
+  width: 100%;
+  max-width: 300px;
+  border: 1px solid #FFC499;
+  border-radius: 40px;
+  padding-left: 12px; }
+  .selectbox:active, .selectbox.open {
+    border: 1px solid #FFC499; }
+  .selectbox:focus {
+    border: 1px solid #ff6c00; }
+  .selectbox .list {
+    left: 0;
+    right: 0;
+    border: inherit; }
 
 .page-header {
   position: fixed;
@@ -975,17 +1022,30 @@ blockquote {
 .page-shop__card-full-link {
   color: #393939; }
 
-.page-shop__card-add {
-  margin: 16px 0; }
+.page-shop__card-form-wrapper {
+  margin-bottom: 16px; }
 
-.page-shop__card-title, .page-shop__card-cost, .page-shop__card-excerpt, .page-shop__card-form-wrapper {
+.page-shop__card-title, .page-shop__card-cost, .page-shop__card-excerpt {
   margin-bottom: 12px; }
+
+.page-shop__card-form input[type=number] {
+  padding: 8px 0;
+  padding-right: 4px;
+  text-indent: 12px; }
+
+.page-shop__card-form-row {
+  width: 100%;
+  display: inline-block;
+  margin-bottom: 16px; }
+  .page-shop__card-form-row:last-of-type {
+    margin-bottom: 0; }
 
 .page-shop__card-img {
   width: 100%; }
 
 .page-shop__qview-card-thumbs {
-  margin-top: 16px; }
+  margin-top: 16px;
+  direction: rtl; }
 
 .page-shop__qview-card-thumb {
   margin-right: 16px; }

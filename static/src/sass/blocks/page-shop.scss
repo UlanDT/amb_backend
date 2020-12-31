@@ -174,9 +174,7 @@
       flex-flow: row nowrap;
     }
 
-    //@include mdx($mobile-width) {
-    //  flex-flow: column wrap;
-    //}
+    //@include mdx($mobile-width) { }
   }
 
   &__gallery,
@@ -253,22 +251,36 @@
     color: $colorTextSalesTitle;
   }
 
-  &__card-add {
-    margin: $padGeneral 0;
-  }
+  //&__card-add {}
 
   //&__card-excerpt {}
 
+  &__card-form-wrapper {
+    margin-bottom: $padGeneral;
+  }
+
   &__card-title,
   &__card-cost,
-  &__card-excerpt,
-  &__card-form-wrapper {
+  &__card-excerpt {
     margin-bottom: 12px;
   }
 
   &__card-form {
     input[type=number] {
       @extend .input-item;
+      padding: 8px 0;
+      padding-right: 4px;
+      text-indent: 12px;
+    }
+  }
+
+  &__card-form-row {
+    width: 100%;
+    display: inline-block;
+    margin-bottom: $padGeneral;
+
+    &:last-of-type {
+      margin-bottom: 0;
     }
   }
 
@@ -276,9 +288,9 @@
     width: 100%;
   }
 
-
   &__qview-card-thumbs {
     margin-top: 16px;
+    direction: rtl;
   }
 
   &__qview-card-thumb {

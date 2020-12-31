@@ -179,6 +179,45 @@ blockquote {
   }
 }
 
+.accordion {
+  .ui-accordion-header {
+    position: relative;
+  }
+
+  .ui-accordion-header-active + &__row {
+    background-color: $bgSubscribe;
+  }
+
+  .ui-accordion-header-icon {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    display: inline-block;
+    width: 20px;
+    height: 15px;
+    transform: translateY(-50%);
+    background: url("../img/icon-up-down.png") no-repeat center top;
+    background-size: cover;
+  }
+
+  .ui-accordion-header-active .ui-accordion-header-icon {
+    background-position: center bottom;
+  }
+
+  &__title {
+    font-weight: normal;
+    font-size: $fsCardTitle;
+    margin: 8px 0;
+    padding-bottom: 8px;
+    cursor: pointer;
+  }
+
+  &__row {
+    padding: 8px;
+  }
+}
+
 .hyphen-list {
   list-style-type: none;
 

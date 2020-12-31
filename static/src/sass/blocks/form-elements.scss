@@ -70,3 +70,28 @@
     text-indent: 10px;
   }
 }
+
+.selectbox {
+  font-size: inherit;
+  width: 100%;
+  max-width: 300px;
+
+  border: 1px solid $bgButton;
+  border-radius: 40px;
+  padding-left: 12px;
+
+  &:active,
+  &.open {
+    border: 1px solid $bgButton;
+  }
+
+  &:focus {
+    border: 1px solid darken($bgButton, 30%);
+  }
+
+  .list {
+    left: 0;
+    right: 0;
+    border: inherit;
+  }
+}

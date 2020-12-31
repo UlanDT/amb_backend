@@ -8,11 +8,11 @@
       <div class="page-shop__qview-container">
         <div class="page-shop__qview-gallery page-shop__gallery">
           <div class="js-zoom-card-slick">
-            <div class="">
+            <div class="" data-src="{{ sox.image.url }}">
               <img class="page-shop__card-img js-card-zoom-img" src="{{ sox.image.url }}" alt='{{ sox.title }}'>
             </div>
             <!-- end  -->
-            <div class="">
+            <div class="" data-src="{{ sox.image.url }}">
               <img class="page-shop__card-img js-card-zoom-img" src="{{ sox.image.url }}" alt='{{ sox.title }}'>
             </div>
             <!-- end  -->
@@ -38,19 +38,22 @@
           <h2 class="page-shop__card-cost">CHF{{ sox.price }}</h2>
           <div class="page-shop__card-form-wrapper">
             <form class="page-shop__card-form" action="{% url 'cart:cart_add' sox.id %}" method="post">
-              {{ cart_product_form }}
-              {% csrf_token %}
-              <br/>
-              <input class="page-shop__card-add btn btn-primary" type="submit" value="Add to cart">
-              {% comment %}
-                 <select class="js-size-nice-select" name="size" id="id_s_size">
+              <div class="page-shop__card-form-row">
+                {#                 {{ cart_product_form }}#}
+                <input type="number" name="quantity" min="0" placeholder="Quantity" required="" id="id_quantity">
+                {% csrf_token %}
+              </div>
+              <div class="page-shop__card-form-row">
+                <select class="selectbox js-size-nice-select" name="size" id="id_s_size">
                   <option value="s" default hidden>Select a size</option>
                   <option value="s">S</option>
                   <option value="m">M</option>
                   <option value="xl">XL</option>
                 </select>
-              {% endcomment %}
-
+              </div>
+              <div class="page-shop__card-form-row">
+                <input class="page-shop__card-add btn btn-primary" type="submit" value="Add to cart">
+              </div>
               {% comment %}
               <label class="" for="id_quantity">
                 <p class="page-text">Quantity:</p>
@@ -60,10 +63,22 @@
               {% endcomment %}
             </form>
           </div>
-          <p class="page-shop__card-excerpt page-text">{{ sox.description|linebreaks }}</p>
-          <div>
-            <p>{{ sox.fabrics }}</p>
-            <p>{{ sox.size }}</p>
+          <div class="accordion js-card-accordion">
+            <h3 class="accordion__title">Description</h3>
+            <div class="accordion__row">
+              <p class="accordion__text">{{ sox.description|linebreaks }}</p>
+            </div>
+            <!-- / -->
+            <h3 class="accordion__title">Fabrics</h3>
+            <div class="accordion__row">
+              <p class="accordion__text">{{ sox.fabrics }}</p>
+            </div>
+            <!-- / -->
+            <h3 class="accordion__title">Size</h3>
+            <div class="accordion__row">
+              <p class="accordion__text">{{ sox.size }}</p>
+            </div>
+            <!-- / -->
           </div>
         </div>
         <!-- end of .page-shop__qview-details -->
