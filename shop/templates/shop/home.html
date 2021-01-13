@@ -6,16 +6,16 @@
 {% block content %}
   <main class="page-main js-page-main">
     <section
-        class="page-home page-home--bg-home page-main__content"
+        class="wow animate__animated animate__fadeIn animate__delay-1s page-home page-home--bg-home page-main__content"
         style="background-image: url('{% static "img/content-img1-1.png" %}')"
     >
       <div class="page-home__container">
         <div class="page-home__first page-container">
-          <h1 class="page-home__title page-text page-text-h1">
+          <h1 class="wow animate__animated animate__fadeInLeftBig animate__delay-2s page-home__title page-text page-text-h1">
             Pilates, Barre, TRX, Yoga
             <span class="page-text--noweight">or</span> other classes&nbsp;...
           </h1>
-          <h3 class="page-home__subtitle page-text page-text-h3">
+          <h3 class="wow animate__animated animate__fadeInRightBig  animate__delay-2s page-home__subtitle page-text page-text-h3">
             Perfect <span class="page-text--highlight">SWISS</span> socks for
             your favorite sport !
           </h3>
@@ -30,31 +30,31 @@
     <section class="page-our-shop page-main__content">
       <div class="page-main__wrapper page-main__wrapper--reverse">
         <div class="page-main__first page-container">
-          <h1 class="page-main__title page-text page-text-h1">Our Shop</h1>
-          <h3 class="page-main__subtitle page-text page-text-h3">
+          <h1 class="wow animate__animated animate__fadeIn page-main__title page-text page-text-h1">Our Shop</h1>
+          <h3 class="wow animate__animated animate__fadeInRight animate__delay-1s   page-main__subtitle page-text page-text-h3">
             Enjoy the excelent quality and unique design of our SOCKS!
           </h3>
-          <p class="page-main__text">Antislippery SOCKS for all family</p>
-          <p class="page-main__text">
+          <p class="wow animate__animated animate__fadeInRight animate__delay-1s  page-main__text">Antislippery SOCKS for all family</p>
+          <p class="wow animate__animated animate__fadeInRight animate__delay-1s   page-main__text">
             Our SOCKS are perfect for pilates, barrie, yoga, TRX
             classes.Speedy range is made for running and cycling. try now!
           </p>
-          <p class="page-main__text page-text--highlight">
+          <p class="wow animate__animated animate__fadeInRight animate__delay-1s  page-main__text page-text--highlight">
             Free delivery in switzerland. Please contact us for delivery in
             Europe
           </p>
           <div class="page-main__btns-action">
-            <button class="page-main__btn-action btn btn-primary">
+            <button class="wow animate__animated animate__fadeIn  page-main__btn-action btn btn-primary">
               Get it!
             </button
             >
-            <button class="page-main__btn-action btn btn-secondary">
+            <button class="wow animate__animated animate__fadeIn  page-main__btn-action btn btn-secondary">
               Inspiration
             </button>
           </div>
         </div>
 
-        <div class="page-main__last">
+        <div class="wow animate__animated animate__fadeIn   page-main__last">
           <img class="" src="{% static 'img/content-img2.jpg' %}" alt="Our Shop image"/>
         </div>
       </div>
@@ -64,25 +64,25 @@
     <section class="page-about page-main__content">
       <div class="page-main__wrapper">
         <div class="page-main__first page-container">
-          <h1 class="page-main__title page-text page-text-h1">
+          <h1 class="wow animate__animated animate__fadeIn  page-main__title page-text page-text-h1">
             Who are we&nbsp;?
           </h1>
-          <h3 class="page-main__subtitle page-text page-text-h3">
+          <h3 class="wow animate__animated animate__fadeInLeft animate__delay-1s   page-main__subtitle page-text page-text-h3">
             We are women-team inspired by sport and family activities. We love
             to motivate people to make sport, make fun and enjoy theriselves!
           </h3>
-          <p class="page-main__text">
+          <p class="wow animate__animated animate__fadeInLeft animate__delay-1s   page-main__text">
             AMB BOX is based in lausanne - the heart of sport in switzerland.
           </p>
-          <p class="page-main__text page-text--highlight">
+          <p class="wow animate__animated animate__fadeInLeft animate__delay-1s   page-main__text page-text--highlight">
             Join our community of active people!
           </p>
           <div class="page-main__btns-action">
-            <button class="page-main__btn-action btn btn-primary">
+            <button class="wow animate__animated animate__fadeIn  page-main__btn-action btn btn-primary">
               I'm with you!
             </button
             >
-            <button class="page-main__btn-action btn btn-secondary">
+            <button class="wow animate__animated animate__fadeIn   page-main__btn-action btn btn-secondary">
               About us
             </button>
           </div>
@@ -98,7 +98,7 @@
     <section class="page-sales page-main__content">
       <div class="page-sales__container">
         <div class="page-container">
-          <h2 class="page-sales__title">
+          <h2 class="wow animate__animated animate__fadeIn animate__delay-1s page-sales__title">
             Buy now the high quality swiss designed sport socks:
             <span class="page-text--highlight"
             ><strong>
@@ -111,7 +111,7 @@
           </h2>
         </div>
         <div class="page-sales__swiper swiper-container js-swiper">
-          <div class="page-sales__items-wrapper swiper-wrapper">
+          <div class="wow animate__animated animate__fadeIn  animate__delay-1s  page-sales__items-wrapper swiper-wrapper">
             {% for item in sox %}
               <a class="page-sales__item swiper-slide" href="{{ item.get_absolute_url }}">
                 <img

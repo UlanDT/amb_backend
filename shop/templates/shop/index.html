@@ -8,6 +8,13 @@
   <meta name="keywords" content=""/>
   <title>{% block title %}{% endblock %}</title>
   {% load static %}
+  <!-- Animated lib -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js'></script>
+  <!-- Animated lib -->
   <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
@@ -229,7 +236,7 @@
 <footer class="page-footer">
   <div class="page-community">
     <div class="page-container">
-      <h2 class="page-community__title">
+      <h2 class="wow animate__animated animate__fadeIn  page-community__title">
         For any questions / pour toutes les questions
         <a class="page-community__mailto" href="mailto:info@ambsox.com"
         >info@ambsox.com</a
@@ -261,7 +268,7 @@
 
   <div class="page-subscribe page-main__content">
     <div class="page-container">
-      <div class="page-subscribe__container">
+      <div class="wow animate__animated animate__fadeIn  page-subscribe__container">
         <h2 class="page-subscribe__title page-text-h2">Subscribe</h2>
         <p class="page-subscribe__text">
           Sign up with your email address to receive news and updates
@@ -286,7 +293,7 @@
     </div>
   </div>
   <!-- end .page-subscribe .page-main__content -->
-  <div class="page-footer__list-wrapper">
+  <div class="wow animate__animated animate__fadeIn  page-footer__list-wrapper">
     <ul class="page-footer__list">
       <li class="page-footer__item">
         <a class="page-footer__link" href="#">Blog</a>
@@ -329,6 +336,10 @@
         integrity="sha512-NqYds8su6jivy1/WLoW8x1tZMRD7/1ZfhWG/jcRQLOzV1k1rIODCpMgoBnar5QXshKJGV7vi0LXLNXPoFsM5Zg=="
         crossorigin="anonymous"></script>
 <script src="{% static 'js/script.min.js' %}"></script>
+
+<script>
+  new WOW().init();
+</script>
 
 </body>
 </html>
