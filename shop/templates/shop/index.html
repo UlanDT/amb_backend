@@ -50,15 +50,17 @@
           <ul
               class="page-header__nav-list page-header__menu-list menu-list"
           >
+          <!-- menu-list__link--active -->
             <li class="menu-list__item">
               <a
-                  class="menu-list__link menu-list__link--active"
+                  id='Home'
+                  class="menu-list__link"
                   href="{% url 'home' %}"
               >Home</a
               >
             </li>
             <li class="menu-list__item">
-              <a class="menu-list__link" href="{% url 'our_sox' %}">Our Sox</a>
+              <a id='OurSox' class="menu-list__link" href="{% url 'our_sox' %}">Our Sox</a>
             </li>
             <li class="menu-list__item">
               <a class="menu-list__link" href="{% url 'sox_list' %}">Shop</a>
@@ -69,6 +71,9 @@
             <li class="menu-list__item">
               <a class="menu-list__link" href="{% url 'sale' %}">Sale&nbsp;%</a>
             </li>
+            <!-- <li>
+              <p>{{ request.get_full_path }}</p>
+            </li> -->
           </ul>
           <!-- end .nav-list -->
 
@@ -339,6 +344,20 @@
 
 <script>
   new WOW().init();
+</script>
+
+<script>
+  let amb_path = window.location.href;
+  console.log(amb_path);
+  console.log(typeof(amb_path));
+  //our_sox
+
+  if (amb_path.includes('our_sox')){
+    $('#OurSox').addClass('menu-list__link--active')
+  } else {
+    $('#Home').addClass('menu-list__link--active')
+  }
+
 </script>
 
 </body>
